@@ -3,6 +3,7 @@ html, body {
 	height:100%;
 	display: flex;
 	overflow: hidden;
+	color:$body-font-color;
 }
 .container {
 	background-image: url("file:///C:/Users/Robert/website2/img/bg.jpeg");
@@ -41,10 +42,10 @@ html, body {
 			.card {
 				width: 35%;
   			height: 75%;
-				background-color: #13bdd2;
+				background-color: $primary;
 				z-index: 2;
 				align-items: center;
-				border: 1px #13bdd2;
+				border: 1px $primary;;
 				border-radius: 10px;
 			}
 }

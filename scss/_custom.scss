@@ -3,7 +3,6 @@ html, body {
 	height:100%;
 	display: flex;
 	overflow: hidden;
-	color:$body-font-color;
 }
 .container {
 	background-image: url("file:///C:/Users/Robert/website2/img/bg.jpeg");
@@ -42,10 +41,24 @@ html, body {
 			.card {
 				width: 35%;
   			height: 75%;
-				background-color: $primary;
+				background-color: $primary-color;
 				z-index: 2;
 				align-items: center;
-				border: 1px $primary;;
+				border: 1px $primary-color;
 				border-radius: 10px;
+
+				.card > * {
+					text-align: center;
+					align-items:center;
+					justify-content: space-around;
+					align-content: center;
+					vertical-align: middle;
+				}
 			}
+}
+
+.circle {
+	width:96px;
+	height:96px;
+	color: #fff;
 }

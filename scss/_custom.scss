@@ -115,10 +115,13 @@ $button-background: #fff;
 		opacity:5;
 	}
 	.select {
+		@extend .cta;
 		background-color:$primary-color;
 		color:white;
 		padding-right:20px;
 		width: auto;
+		box-sizing:border-box;
+		line-height: 0.5;
 		height: 11px;
 		font-size:15px;
 		letter-spacing: -0.4px;
@@ -126,8 +129,6 @@ $button-background: #fff;
 		font-family: Roboto;
 		text-transform: uppercase;
 		font-stretch: condensed;
-		box-sizing:border-box;
-		line-height: 0.5;
 
 
 	}

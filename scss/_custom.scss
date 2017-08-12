@@ -6,43 +6,29 @@ html, body {
 }
 $primary-color:#13bdd2;
 $button-background: #fff;
+$button-second-background: #42cadb;
 .container {
 	background-image: url("file:///C:/Users/Robert/website2/img/bg.jpeg");
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size:cover;
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
 	width:100%;
 	height:100%;
 
 		.content {
-			align-items:center;
-			display:flex;
-			justify-content: space-around;
-			align-content: center;
-			vertical-align: middle;
 			height:100%;
-
-				.divide {
-				 display: flex;
-				 justify-content:space-around;
-				 flex-direction: row;
-				 align-items:flex-start;
-				}
-				.efi {
-					height: 80%;
-					width: 80%;
-					padding-right:10px;
-				}
 		}
 
+		.efi {
+			display: inline-block;
+			height: 140px;
+			width: 140px;
+			padding-right:5px;
+		}
 			.card {
-				width: 546px;
-  			height: 606px;
+				display: inline-block;
+				max-width: 546px;
+  			max-height: 606px;
 				background-color: $primary-color;
 				z-index: 2;
 				align-items: center;
@@ -70,6 +56,11 @@ $button-background: #fff;
 					  width: 489px;
 					  height: 253px;
 						z-index: 5;
+						padding:0 28px 29px;
+						border-radius: 5px;
+						box-sizing: border-box;
+						margin-bottom: 125px;
+
 
 						.btw {
 							z-index: 6;
@@ -80,14 +71,12 @@ $button-background: #fff;
 						}
 
 						.content {
-							display: flex;
 							z-index: 1;
 							flex-direction: column;
-							opacity: 0.22;
 							width:100%;
 							height:100%;
 							border-radius: 5px;
-						  border: solid 1px #fff;
+						 	border: 1px solid rgba(255, 255, 255, 0.22);
 						}
 
 					}
@@ -168,4 +157,17 @@ $button-background: #fff;
 			width: 26px;
   		height: 14px;
 		}
+		.btnlog {
+			display: inline-block;
+			width: 18px;
+		  height: 18px;
+			background-color: $button-second-background;
+			border-radius: 50%;
+			color:$white;
+			padding:2px;
+			font-size: 8px;
+		}
+}
+.logins {
+	display: inline-block;
 }

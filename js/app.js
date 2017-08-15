@@ -23,6 +23,7 @@ $(document).ready(function() {
       alert('use proper LOGIN');
 
     } else {
+      alert('success!');
       addArrow.classList.remove("InvaildLogin");
       addArrow.classList.remove("InvaildPass");
       showLog.classList.remove("alert");
@@ -43,7 +44,7 @@ $(document).ready(function() {
           console.log(response);
         }
       });
- }
+    }
   });
 
   changeBtn.addEventListener("click", function() {

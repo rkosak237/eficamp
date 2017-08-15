@@ -20,8 +20,8 @@ $(document).ready(function() {
     } else if (showLog.value == 0) {
       showLog.classList.add("alert");
       addArrow.classList.toggle("InvaildLogin");
-
       alert('use proper LOGIN');
+
     } else {
       addArrow.classList.remove("InvaildLogin");
       addArrow.classList.remove("InvaildPass");
@@ -53,4 +53,3 @@ $(document).ready(function() {
   });
 
 });
-//dodac do pola trojkat ktory bedzie wskazywal bledne pole, znajduje się na inpucie ::after

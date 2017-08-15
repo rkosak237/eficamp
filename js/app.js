@@ -2,6 +2,10 @@ $(document).foundation();
 $(document).ready(function() {
   const button = document.querySelector(".submit");
   const passInput = document.querySelector(".pass");
+  const changeBtn = document.querySelector(".btnlog");
+  const showLog = document.querySelector(".login");
+  const hideLogExample = document.querySelector(".logToInput")
+  const addArrow = document.querySelector(".wrap");
 
   button.addEventListener("click", event => {
 
@@ -10,13 +14,21 @@ $(document).ready(function() {
 
     if (passInput.value == 0) {
       passInput.classList.add("alert");
-      alert('use proper login');
+      alert('use proper password');
+      addArrow.classList.toggle("InvaildPass");
 
+    } else if (showLog.value == 0) {
+      showLog.classList.add("alert");
+      addArrow.classList.toggle("InvaildLogin");
 
+      alert('use proper LOGIN');
     } else {
+      addArrow.classList.remove("InvaildLogin");
+      addArrow.classList.remove("InvaildPass");
+      showLog.classList.remove("alert");
       passInput.classList.remove("alert");
-      let yourLogin = passInput.value;
-      let yourPass =
+      let yourLogin = showLog.value;
+      let yourPass = passInput.value;
       $.ajax({
         type: "post",
         data: {
@@ -31,15 +43,13 @@ $(document).ready(function() {
           console.log(response);
         }
       });
-    }
+ }
   });
-  const changeBtn = document.querySelector(".btnlog");
-  const showLog = document.querySelector(".custominput");
-
 
   changeBtn.addEventListener("click", function() {
     changeBtn.classList.toggle("hide");
     showLog.classList.toggle("hide");
+    hideLogExample.classList.toggle("hide");
   });
 
 });

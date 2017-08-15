@@ -7,8 +7,10 @@ html {
 }
 $primary-color: #13bdd2;
 $button-background: #fff;
+$ctaFontColor: #000;
 $button-second-background: #42cadb;
 $white: #fff;
+$focusHL: #21A179;
 
 .container {
 	background-image: url("../img/background.jpeg");
@@ -74,7 +76,7 @@ $white: #fff;
 			top: 50px;
 		}
 
-		.frame {
+		.frame-content {
 			width: 489px;
 			height: 253px;
 			z-index: 5;
@@ -112,7 +114,7 @@ $white: #fff;
 		width: 118px;
 		height: 31px;
 		background-color: $button-background;
-		color: black;
+		color: $ctaFontColor;
 		display: inline-block;
 		vertical-align: middle;
 		margin: 0 0 1rem;
@@ -122,22 +124,24 @@ $white: #fff;
 		border-radius: 5px;
 		opacity: 5;
 	}
-
 	.select {
 		background-color: $primary-color;
-		color: white;
-		padding-right: 20px;
-		width: auto;
+		color: $white;
 		box-sizing: border-box;
 		line-height: 0.5;
-		height: 11px;
 		font-size: 15px;
 		letter-spacing: -0.4px;
 		font-weight: 300;
 		text-transform: uppercase;
 		font-stretch: condensed;
 		opacity: 0.83;
+		width: 159px;
+    height: 31px;
+
+		&:focus {
+			box-shadow: outline 0 0 5px 1px $white;
 	}
+}
 }
 
 .wrap {
@@ -162,7 +166,7 @@ $white: #fff;
 		box-shadow: inset 0 1px 0 0 grey;
 
 		&:focus {
-			border: 1px solid #21A179;
+			border: 1px solid $focusHL;
 			box-shadow: inset 0 0 5px 1px rgba(33,161,121,1);
 		}
 	}
@@ -176,8 +180,8 @@ $white: #fff;
 		height: 14px;
 	}
 }
-
-.logins {
+/* */
+.frame-content-details {
 	margin-top: 74px;
 	display: flex;
 	justify-content: center;
@@ -199,7 +203,7 @@ $white: #fff;
 		line-height: 20.5px;
 	}
 
-	.btnlog {
+	.btnChangeLogin {
 		width: 18px;
 		height: 18px;
 		background-color: $button-second-background;

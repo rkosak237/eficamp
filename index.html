@@ -14,46 +14,45 @@
     <div class="row">
       <div class="small-3 small-centered columns">
         <div class="squize">
-
-          <img class="efi hide-for-small-only" src="file:///C:/Users/Robert/website2/img/ef_log.png" alt="">
+          <img class="efi hide-for-small-only" src="file:///C:/Users/Robert/website2/img/ef_log.png" alt="Efigence logotype">
           <div class="card">
             <div class="grid-y medium-grid-frame">
               <div class="cell shrink header medium-cell-block-container">
-                <h1 class="text-center">Login</h1></div>
-
+                <h1 class="text-center" tabindex="0" aria-label="you are at login card">Login</h1></div>
               <div class="row">
                 <div class="column align-self-middle">
-                  <p class="text-center">Aby, zaimportować dane zaloguj się do swojego banku</p>
+                  <p class="text-center" aria-label="Login to import data from your bank" tabindex="0">Aby, zaimportować dane zaloguj się do swojego banku</p>
                 </div>
                 <div class="portrait">
                 </div>
                 <div class="frame">
-                  <div class="content">
-                    <div class="logins">
-                      <p class="logToInput text-center">127633223</p>
-                      <button class="button btnlog">X</button>
+                  <div class="frame-content">
+                    <div class="frame-content-details">
+                      <p class="logToInput text-center" aria-label="Your last login">127633223</p>
+                      <button class="button btnChangeLogin" aria-label="Change login to your application"
+                      alt="Change login to your application">X</button>
                     </div>
                     <!--Login -->
                     <form>
                       <div class="wrap logArrow">
-                        <input class="custominput login hide" type="text" placeholder="Login" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Login'">
+                        <input class="custominput login hide" type="text" placeholder="Login" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Login'" aria-label="Type down your login" alt="Login">
                       </div>
                     </form>
 
                     <!---form-start-->
                     <label>
                         <div class="wrap passArrow">
-                          <input class="custominput pass" type="text" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
-                          <div class="triangle"></div>
-                          <img class="icon" src="img/keyboard_icon.png" alt="">
+                          <input class="custominput pass"  type="text" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" aria-label="Type down your password" alt="Password">
+                          <img class="icon" src="img/keyboard_icon.png">
                         </div>
                     </label>
-                  <!---form-stop-->
+                    <!---form-stop-->
 
-                  <div class="grid-x grid-margin-x space">
-                    <div class="button-group">
-                      <a class="button select">Select other</a>
-                      <a class="button submit cta" href="#">GO</a>
+                    <div class="grid-x grid-margin-x space">
+                      <div class="button-group">
+                        <a class="button select" tabindex="0" alt="Select other account" aria-label="Select other options">Select other</a>
+                        <a class="button submit cta" alt="Sign in" aria-label="Sign in into your accout" href="#">GO</a>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -63,12 +62,11 @@
         </div>
       </div>
     </div>
-  </div>
 
-  <script src="bower_components/jquery/dist/jquery.js"></script>
-  <script src="bower_components/what-input/dist/what-input.js"></script>
-  <script src="bower_components/foundation-sites/dist/js/foundation.js"></script>
-  <script src="js/app.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/what-input/dist/what-input.js"></script>
+    <script src="bower_components/foundation-sites/dist/js/foundation.js"></script>
+    <script src="js/app.js"></script>
 </body>
 
 </html>

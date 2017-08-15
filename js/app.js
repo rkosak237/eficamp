@@ -2,7 +2,7 @@ $(document).foundation();
 $(document).ready(function() {
   const button = document.querySelector(".submit");
   const passInput = document.querySelector(".pass");
-  const changeBtn = document.querySelector(".btnlog");
+  const changeBtn = document.querySelector(".btnChangeLogin");
   const showLog = document.querySelector(".login");
   const hideLogExample = document.querySelector(".logToInput")
   const addArrow = document.querySelector(".wrap");

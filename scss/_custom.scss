@@ -12,7 +12,7 @@ $button-second-background: #42cadb;
 $white: #fff;
 $focusHL: #21A179;
 
-.container {
+.layout-container {
 	background-image: url("../img/background.jpeg");
 	background-position: center;
 	background-repeat: no-repeat;
@@ -23,17 +23,13 @@ $focusHL: #21A179;
 	justify-content: center;
 	align-items: center;
 
-	.content {
-		height: 100%;
-	}
-
 	.efi {
 		height: 140px;
 		width: 140px;
 		padding-right: 5px;
 	}
 
-	.squize {
+	.layout-content {
 		justify-content: space-around;
 		display: flex;
 		max-width: 700px;
@@ -41,8 +37,8 @@ $focusHL: #21A179;
 	}
 
 	.card {
-		max-width: 546px;
-		max-height: 606px;
+		width: 546px;
+		height: 606px;
 		background-color: $primary-color;
 		z-index: 2;
 		align-items: center;
@@ -76,21 +72,22 @@ $focusHL: #21A179;
 			top: 50px;
 		}
 
-		.frame-content {
+		.frame {
 			width: 489px;
 			height: 253px;
 			z-index: 5;
 			padding: 0 28px 29px;
 			border-radius: 5px;
 			box-sizing: border-box;
-			margin-bottom: 125px;
+			border: 1px solid rgba(255, 255, 255, 0.22);
 
-			.btw {
+
+			.frame-content {
 				z-index: 6;
 				width: 100%;
 				height: 100%;
 				position: relative;
-				top: -185px;
+
 			}
 
 			.content {
@@ -105,7 +102,7 @@ $focusHL: #21A179;
 	}
 }
 
-.space {
+.btn-space {
 	padding-top: 22px;
 	display: flex;
 	justify-content: center;
@@ -146,22 +143,21 @@ $focusHL: #21A179;
 
 .wrap {
 	display: flex;
-	max-width: 409px;
+	width:445px;
 	max-height: 39px;
-	justify-content: center;
+	justify-content: space-between;
 	align-items: baseline;
+
 
 	label {
 		height: 35px;
-		width: 90%;
-		max-width: 409px;
 		max-height: 35px;
 	}
 
 	.custominput {
-		margin-left: 22px;
-		margin-right: 10px;
 		max-height: 35px;
+		width: 409px;
+		max-height: 39px;
 		border-radius: 5px;
 		box-shadow: inset 0 1px 0 0 grey;
 
@@ -195,6 +191,7 @@ $focusHL: #21A179;
 	.login {
 		width: 409px;
 		height: 35px;
+		margin-right:20px;
 	}
 
 	.logToInput {

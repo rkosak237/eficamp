@@ -10,11 +10,12 @@
 </head>
 
 <body>
-  <div class="container">
+  <div class="layout-container">
     <div class="row">
       <div class="small-3 small-centered columns">
-        <div class="squize">
+        <div class="layout-content">
           <img class="efi hide-for-small-only" src="file:///C:/Users/Robert/website2/img/ef_log.png" alt="Efigence logotype">
+        <!--Card-start -->
           <div class="card">
             <div class="grid-y medium-grid-frame">
               <div class="cell shrink header medium-cell-block-container">
@@ -32,23 +33,24 @@
                       <button class="button btnChangeLogin" aria-label="Change login to your application"
                       alt="Change login to your application">X</button>
                     </div>
-                    <!--Login -->
+                    <!--Login input-start -->
                     <form>
                       <div class="wrap logArrow">
                         <input class="custominput login hide" type="text" placeholder="Login" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Login'" aria-label="Type down your login" alt="Login">
                       </div>
                     </form>
+                    <!--Login input-stop -->
 
-                    <!---form-start-->
+                    <!---form, password input-start-->
                     <label>
                         <div class="wrap passArrow">
                           <input class="custominput pass"  type="text" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" aria-label="Type down your password" alt="Password">
                           <img class="icon" src="img/keyboard_icon.png">
                         </div>
                     </label>
-                    <!---form-stop-->
-
-                    <div class="grid-x grid-margin-x space">
+                    <!---form, password input-stop-->
+                    <!--Buttons select, subm-start -->
+                    <div class="grid-x grid-margin-x btn-space">
                       <div class="button-group">
                         <a class="button select" tabindex="0" alt="Select other account" aria-label="Select other options">Select other</a>
                         <a class="button submit cta" alt="Sign in" aria-label="Sign in into your accout" href="#">GO</a>
@@ -59,6 +61,7 @@
               </div>
             </div>
           </div>
+          <!--Card-stop -->
         </div>
       </div>
     </div>

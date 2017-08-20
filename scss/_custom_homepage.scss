@@ -1,0 +1,88 @@
+body {
+	margin:0;
+	overflow: auto;
+}
+
+.full-width {
+	width:100%;
+	padding:0;
+}
+
+.full-width-content-background {
+	background-color: #d3d3d3;
+	padding-top: 65px;
+}
+.top-bar {
+ background-color: $primary-color;
+ height:130px;
+	 ul {
+	 	background-color:transparent;
+
+
+	 	li {
+	 		a {
+	 			color:$white;
+			    height: 101px;
+			    text-align: center;
+			    align-content: center;
+			    vertical-align: middle;
+			    justify-content: center;
+			   	line-height: 78px;
+	 		}
+	 	}
+	 }
+}
+.efi {
+		height: 100px;
+		width: 100px;
+		padding-right: 5px;
+	}
+.layout {
+	display: flex;
+	margin:0 auto;
+	background-color: #e3e7ea;
+	height:100vh;
+}
+
+.finance-headers {
+	font-size:20px;
+}
+
+.text {
+	font-size: 20px;
+}
+.content-containter {
+	width:200px;
+}
+.diagram {
+	width: 100%;
+    height: 250px;
+    background-color: #fff;
+    margin-bottom: 30px;
+}
+
+.background {
+	background-color: black;
+	padding:0;
+	text-align: center;
+}
+.background-grey {
+	padding:0;
+	display: flex;
+}
+.options-content {
+	background-color: white;
+    height: 150px;
+    width: 350px;
+    margin-right:20px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.history-content {
+	padding-right:0px;
+	height: 400px;
+    width: 100%;
+    background-color: white;
+    margin-bottom: 100px;
+    border-radius: 5px;
+}

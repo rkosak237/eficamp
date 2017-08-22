@@ -5,7 +5,7 @@ $(document).ready(function() {
   const passInput = document.querySelector(".pass");
   const changeBtn = document.querySelector(".btnChangeLogin");
   const showLog = document.querySelector(".login");
-  const hideLogExample = document.querySelector(".logToInput");
+  const hideLogExample = document.querySelector(".example-login");
   const addArrow = document.querySelector(".wrap");
 
   button.addEventListener("click", event => {

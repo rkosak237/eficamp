@@ -88,14 +88,7 @@ $focusHL: #21A179;
 
 			}
 
-			.content {
-				z-index: 1;
-				flex-direction: column;
-				width: 100%;
-				height: 100%;
-				border-radius: 5px;
-				border: 1px solid rgba(255, 255, 255, 0.22);
-			}
+			
 		}
 	}
 }
@@ -131,7 +124,7 @@ $focusHL: #21A179;
 		font-stretch: condensed;
 		opacity: 0.83;
 		width: 159px;
-    height: 31px;
+    	height: 31px;
 
 		&:focus {
 			box-shadow: outline 0 0 5px 1px $white;
@@ -145,14 +138,7 @@ $focusHL: #21A179;
 	max-height: 39px;
 	justify-content: space-between;
 	align-items: baseline;
-	margin-bottom: 10px
-
-
-	label {
-		height: 35px;
-		max-height: 35px;
-	}
-
+	
 	.custominput {
 		max-height: 35px;
 		width: 409px;
@@ -187,13 +173,8 @@ $focusHL: #21A179;
 		display: none;
 	}
 
-	.login {
-		width: 409px;
-		height: 35px;
-		margin-right:20px;
-	}
-
-	.logToInput {
+	
+	.example-login {
 		margin-right: 5px;
 		font-weight: bold;
 		line-height: 20.5px;
@@ -209,7 +190,6 @@ $focusHL: #21A179;
 		font-size: 8px;
 	}
 }
-
 .pass {
 	margin-top: 5px;
 }

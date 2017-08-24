@@ -16,8 +16,8 @@ body {
  background-color: $primary-color;
  height:130px;
 	 ul {
-	 	background-color:transparent;
-
+	 	background-color: transparent;
+		list-style: none;
 
 	 	li {
 	 		a {
@@ -73,7 +73,7 @@ body {
 .options-content {
 	background-color: white;
     height: 150px;
-    width: 350px;
+    width: 212px;
     margin-right:20px;
     border-radius: 5px;
     margin-bottom: 10px;

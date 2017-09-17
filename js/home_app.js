@@ -21,17 +21,17 @@ const getUrl = () => {
         switch(productData.type) {
          
           case "Wallet":
-              icon = "icon-wallet"
+              icon = "wallet.svg"
             break;
             
             case "Deposits":
-              icon = "icon-deposits"
+              icon = "pig-money-safe.svg"
             break;
             case "Accounts":
-              icon = "icon-accounts"
+              icon = "bank-account.svg"
             break;
             case "Funds":
-              icon = "icon-funds"
+              icon = "bar-chart.svg"
             break;
           default:
             icon = "icon-default"
@@ -57,9 +57,53 @@ getUrl();
 
 
 
+
+
+
+
+
 const getHistory = () => {
   $.get("https://efigence-camp.herokuapp.com/api/data/history", (data) => {
      const historyList = data.content; 
+    historyList.forEach((element, index) => {
+         
+      const printing = document.querySelector(".history");
+      let historyTemplate = (historyData) => {
+      return `
+                <ul class="history-list">
+                  <ul class="menu row">
+                    <li class="small-3 text-center history-elements">${historyData.date}</li>
+                    <li class="small-6 history-elements">${historyData.description}</li>
+                    <li class="small-2 text-right history-elements"><strong>${historyData.amount}</strong></li>
+                    <li class="small-1 text-right history-elements">${historyData.currency}</li>
+                  </ul>
+                </ul>
+      `
+      };
+      function addZeroes(num) {
+      var value = Number(num);
+      var res = num.split(".");
+      if(num.indexOf('.') === -1) {
+          value = value.toFixed(2);
+          num = value.toString();
+      } else if (res[1].length < 3) {
+          value = value.toFixed(2);
+          num = value.toString();
+      }
+      return num
+  }
+
+      const template = historyTemplate(element);
+      $(".history").append(template);
+      });
+  });
+}
+
+getHistory();
+//search oldData in history 
+/* function findMatches(wordToMatch, oldData){
+  $.get("https://efigence-camp.herokuapp.com/api/data/history", (data) => {
+     const historySearch = data.content; 
     historyList.forEach((element, index) => {
          
       const printing = document.querySelector(".history");
@@ -79,8 +123,7 @@ const getHistory = () => {
       $(".history").append(template);
       });
   });
-}
-getHistory();
+}*/
 
 var canvas = document.getElementById("myChart");
 var ctx = canvas.getContext("2d");

@@ -17,33 +17,34 @@ const getUrl = () => {
      // funds
      // bank loans  
         
-       //icons settings 
+       //pozycjonowanie tak jak w projekcie
         switch(productData.type) {
          
           case "Wallet":
-              icon = "wallet.svg"
+              icon = '<img class="product__icon" src="img/wallet.svg" alt="wallet icon">'
             break;
-            
             case "Deposits":
-              icon = "pig-money-safe.svg"
+              icon = '<img class="product__icon" src="img/pig-money-safe.svg" alt="savings icon">'
             break;
             case "Accounts":
-              icon = "bank-account.svg"
+              icon = '<img class="product__icon" src="img/bank-account.svg" alt="product icon">'
             break;
             case "Funds":
-              icon = "bar-chart.svg"
+              icon = '<img class="product__icon" src="img/bar-chart.svg" alt="funds icon">'
+            break;
+            case "Bank loans":
+              icon = '<img class="product__icon" src="img/point.svg" alt="loans icon">'
             break;
           default:
             icon = "icon-default"
          }
       return `
                 <ul class="options-content small-12 medium-8 large-5">
-                  <li>
                   <ul class="{icon} menu">
-                    <li>${icon}</li>
-                    <li>${productData.type} [${productData.elements}]</li>
-                    <li>${productData.amount}</li>
-                    <li>${productData.currency}</li>
+                    <li class="small-4 text-center">${icon}</li>
+                    <li class="small-8 text-center">${productData.type} [${productData.elements}]</li>
+                    <li class="small-8 text-right">${((productData.amount).toFixed(2))} ${productData.currency}</li>
+                    
                   </ul>
                 </ul>
       `
@@ -72,9 +73,10 @@ const getHistory = () => {
       return `
                 <ul class="history-list">
                   <ul class="menu row">
-                    <li class="small-3 text-center history-elements">${historyData.date}</li>
+                    <li class="small-3 text-center history-elements">${(historyData.date).replace(/(\d{4})-(\d\d)-(\d\d)/, "$3-$2-$1")}</li>
                     <li class="small-6 history-elements">${historyData.description}</li>
-                    <li class="small-2 text-right history-elements"><strong>${historyData.amount}</strong></li>
+                    <li class="small-2 text-right history-elements"><strong>${((historyData.amount).toFixed(2))}</strong></li>
+
                     <li class="small-1 text-right history-elements">${historyData.currency}</li>
                   </ul>
                 </ul>

@@ -39,14 +39,12 @@ const getUrl = () => {
             icon = "icon-default"
          }
       return `
-                <ul class="options-content small-12 medium-8 large-5">
-                  <ul class="{icon} menu">
+                
+                  <ul class="{icon} menu options-content small-12 medium-8 large-5">
                     <li class="small-4 text-center">${icon}</li>
-                    <li class="small-8 text-center">${productData.type} [${productData.elements}]</li>
-                    <li class="small-8 text-right">${((productData.amount).toFixed(2))} ${productData.currency}</li>
-                    
+                    <li class="small-8 text-center">${productData.type} [${productData.elements}] <br> ${((productData.amount).toFixed(2))} ${productData.currency} </li>
                   </ul>
-                </ul>
+            
       `
       };
       const template = productTemplate(element);
@@ -55,13 +53,6 @@ const getUrl = () => {
   });
 }
 getUrl();
-
-
-
-
-
-
-
 
 const getHistory = () => {
   $.get("https://efigence-camp.herokuapp.com/api/data/history", (data) => {
@@ -82,19 +73,7 @@ const getHistory = () => {
                 </ul>
       `
       };
-      function addZeroes(num) {
-      var value = Number(num);
-      var res = num.split(".");
-      if(num.indexOf('.') === -1) {
-          value = value.toFixed(2);
-          num = value.toString();
-      } else if (res[1].length < 3) {
-          value = value.toFixed(2);
-          num = value.toString();
-      }
-      return num
-  }
-
+     
       const template = historyTemplate(element);
       $(".history").append(template);
       });
@@ -159,5 +138,27 @@ var chart = new Chart(ctx, {
     ]
   }
 });
+
+const getUpdateChart = () => {
+  $.get("https://efigence-camp.herokuapp.com/api/data/history", (data) => {
+     const historyList = data.content; 
+    historyList.forEach((element, index) => {
+         
+      const printing = document.querySelector(".history");
+      let historyTemplate = (historyData) => {
+      return `
+               
+
+      `
+      };
+      
+
+      const template = historyTemplate(element);
+      $(".history").append(template);
+      });
+  });
+}
+
+getUpdateChart();
 
 });

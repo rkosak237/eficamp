@@ -42,7 +42,7 @@ const getUrl = () => {
                 
                   <ul class="{icon} menu options-content small-12 medium-8 large-5">
                     <li class="small-4 text-center">${icon}</li>
-                    <li class="small-8 text-center">${productData.type} [${productData.elements}] <br> ${((productData.amount).toFixed(2))} ${productData.currency} </li>
+                    <li class="small-8 text-left">${productData.type} [${productData.elements}] <br> ${((productData.amount).toFixed(2))} ${productData.currency} </li>
                   </ul>
             
       `
@@ -138,27 +138,5 @@ var chart = new Chart(ctx, {
     ]
   }
 });
-
-const getUpdateChart = () => {
-  $.get("https://efigence-camp.herokuapp.com/api/data/history", (data) => {
-     const historyList = data.content; 
-    historyList.forEach((element, index) => {
-         
-      const printing = document.querySelector(".history");
-      let historyTemplate = (historyData) => {
-      return `
-               
-
-      `
-      };
-      
-
-      const template = historyTemplate(element);
-      $(".history").append(template);
-      });
-  });
-}
-
-getUpdateChart();
 
 });

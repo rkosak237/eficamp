@@ -21,7 +21,7 @@ const getUrl = () => {
         switch(productData.type) {
          
           case "Wallet":
-              icon = '<img class="product__icon" src="img/wallet.svg" alt="wallet icon">'
+              icon = '<img class="product__icon" src="img/wallet.png" alt="wallet icon">'
             break;
             case "Deposits":
               icon = '<img class="product__icon" src="img/pig-money-safe.svg" alt="savings icon">'
@@ -64,7 +64,7 @@ const getHistory = () => {
       return `
                 <ul class="history-list">
                   <ul class="menu row">
-                    <li class="small-3 text-center history-elements">${(historyData.date).replace(/(\d{4})-(\d\d)-(\d\d)/, "$3-$2-$1")}</li>
+                    <li class="small-3 text-center history-elements">${(historyData.date).replace(/(\d{4})-(\d\d)-(\d\d)/, "$3-$2")}</li>
                     <li class="small-6 history-elements">${historyData.description}</li>
                     <li class="small-2 text-right history-elements"><strong>${((historyData.amount).toFixed(2))}</strong></li>
 
@@ -105,6 +105,68 @@ getHistory();
       });
   });
 }*/
+
+/*
+
+const getHistory = () => {
+  $.get("https://efigence-camp.herokuapp.com/api/data/history", (data) => {
+      var canvas = document.getElementById("myChart");
+      var ctx = canvas.getContext("2d");
+
+      var parent = document.getElementById('parent');
+      const historyList = data.content; 
+        historyList.forEach((element, index) => {
+         
+      const printing = document.querySelector(".history");
+      canvas.width = parent.offsetWidth;
+canvas.height = parent.offsetHeight;
+
+      let historyTemplate = (historyData) => {
+      return `
+                <ul class="history-list">
+                  <ul class="menu row">
+                    <li class="small-3 text-center history-elements">${(historyData.date).replace(/(\d{4})-(\d\d)-(\d\d)/, "$3-$2")}</li>
+                    <li class="small-6 history-elements">${historyData.description}</li>
+                    <li class="small-2 text-right history-elements"><strong>${((historyData.amount).toFixed(2))}</strong></li>
+
+                    <li class="small-1 text-right history-elements">${historyData.currency}</li>
+                  </ul>
+                </ul>
+      `
+      };
+     
+      const template = historyTemplate(element);
+      $(".history").append(template);
+      });
+  });
+}
+
+getHistory();
+/* fit function into ajax request
+var canvas = document.getElementById("myChart");
+var ctx = canvas.getContext("2d");
+
+var parent = document.getElementById('parent');
+
+canvas.width = parent.offsetWidth;
+canvas.height = parent.offsetHeight;
+
+var chart = new Chart(ctx, {
+  type: 'line',
+  options: {
+    responsive: true,
+    maintainAspectRatio: false
+  },
+  data: {
+    labels: [${history.date}],
+    datasets: [
+      {
+        label: ${historyData.description},
+        data: [${historyData.amount}]
+      }
+    ]
+  }
+});*/
 
 var canvas = document.getElementById("myChart");
 var ctx = canvas.getContext("2d");

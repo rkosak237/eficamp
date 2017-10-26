@@ -12,7 +12,7 @@ $(document).ready(function() {
     event.preventDefault();
     console.log(passInput.value);
 
-    if (passInput.value == 0) {
+    if (passInput.value == 0)  {
       passInput.classList.add("alert");
       alert('use proper password');
       addArrow.classList.toggle("InvaildPass");
@@ -22,7 +22,7 @@ $(document).ready(function() {
       addArrow.classList.toggle("InvaildLogin");
       alert('use proper LOGIN');
 
-    } else {
+    } else if ((passInput.value == "camp") && (showLog.value == "efi")) {
       alert('success!');
       addArrow.classList.remove("InvaildLogin");
       addArrow.classList.remove("InvaildPass");
@@ -44,6 +44,11 @@ $(document).ready(function() {
           console.log(response);
         }
       });
+      window.location.replace('home.html');
+    } else if ((passInput.value !== "camp") && (showLog.value !== "efi")) { 
+      alert('Invaild: Login or password');
+    } else {
+      alert('ou better go for a cigarette');
     }
   });
 

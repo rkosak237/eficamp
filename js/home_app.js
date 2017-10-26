@@ -11,40 +11,36 @@ const getUrl = () => {
       
       let productTemplate = (productData) => {
         
-     //wallet
-     //deposits
-     //accounts
-     // funds
-     // bank loans  
-        
-       //pozycjonowanie tak jak w projekcie
         switch(productData.type) {
          
           case "Wallet":
-              icon = '<img class="product__icon" src="img/wallet.png" alt="wallet icon">'
+              icon = '<div id="wallet" class="wallet" alt="wallet icon" id="wallet"></div>'
             break;
             case "Deposits":
-              icon = '<img class="product__icon" src="img/pig-money-safe.svg" alt="savings icon">'
+              icon = '<div id="savings" class="savings" alt="savings icon" id="savings"></div>'
             break;
             case "Accounts":
-              icon = '<img class="product__icon" src="img/bank-account.svg" alt="product icon">'
+              icon = '<div id="bank_account" class="bank_account" alt="product icon" id="bank_account"></div>'
             break;
             case "Funds":
-              icon = '<img class="product__icon" src="img/bar-chart.svg" alt="funds icon">'
+              icon = '<div id="bar_chart" class="bar_chart" alt="funds icon" id="bar_chart"></div>'
             break;
             case "Bank loans":
-              icon = '<img class="product__icon" src="img/point.svg" alt="loans icon">'
+              icon = '<div id="loans" class="loans" alt="loans icon" id="loans"></div>'
             break;
           default:
             icon = "icon-default"
          }
       return `
-                
-                  <ul class="{icon} menu options-content small-12 medium-8 large-5">
-                    <li class="small-4 text-center">${icon}</li>
-                    <li class="small-8 text-left">${productData.type} [${productData.elements}] <br> ${((productData.amount).toFixed(2))} ${productData.currency} </li>
-                  </ul>
-            
+                <div class="options-content small-12 medium-8 large-5">
+                  <div class="row select ">
+                    ${icon}
+                    <ul class="{icon} menu ">
+                      <li class="small-12 text-left">${productData.type} [${productData.elements}] <br> ${((productData.amount).toFixed(2))} ${productData.currency} </li>
+                    </ul>
+                  </div>
+                </div>
+
       `
       };
       const template = productTemplate(element);
@@ -79,94 +75,7 @@ const getHistory = () => {
       });
   });
 }
-
 getHistory();
-//search oldData in history 
-/* function findMatches(wordToMatch, oldData){
-  $.get("https://efigence-camp.herokuapp.com/api/data/history", (data) => {
-     const historySearch = data.content; 
-    historyList.forEach((element, index) => {
-         
-      const printing = document.querySelector(".history");
-      let historyTemplate = (historyData) => {
-      return `
-                <ul class="history-list">
-                  <ul class="menu row">
-                    <li class="small-3 text-center">${historyData.date}</li>
-                    <li class="small-6">${historyData.description}</li>
-                    <li class="small-2 text-right"><strong>${historyData.amount}</strong></li>
-                    <li class="small-1 text-right">${historyData.currency}</li>
-                  </ul>
-                </ul>
-      `
-      };
-      const template = historyTemplate(element);
-      $(".history").append(template);
-      });
-  });
-}*/
-
-/*
-
-const getHistory = () => {
-  $.get("https://efigence-camp.herokuapp.com/api/data/history", (data) => {
-      var canvas = document.getElementById("myChart");
-      var ctx = canvas.getContext("2d");
-
-      var parent = document.getElementById('parent');
-      const historyList = data.content; 
-        historyList.forEach((element, index) => {
-         
-      const printing = document.querySelector(".history");
-      canvas.width = parent.offsetWidth;
-canvas.height = parent.offsetHeight;
-
-      let historyTemplate = (historyData) => {
-      return `
-                <ul class="history-list">
-                  <ul class="menu row">
-                    <li class="small-3 text-center history-elements">${(historyData.date).replace(/(\d{4})-(\d\d)-(\d\d)/, "$3-$2")}</li>
-                    <li class="small-6 history-elements">${historyData.description}</li>
-                    <li class="small-2 text-right history-elements"><strong>${((historyData.amount).toFixed(2))}</strong></li>
-
-                    <li class="small-1 text-right history-elements">${historyData.currency}</li>
-                  </ul>
-                </ul>
-      `
-      };
-     
-      const template = historyTemplate(element);
-      $(".history").append(template);
-      });
-  });
-}
-
-getHistory();
-/* fit function into ajax request
-var canvas = document.getElementById("myChart");
-var ctx = canvas.getContext("2d");
-
-var parent = document.getElementById('parent');
-
-canvas.width = parent.offsetWidth;
-canvas.height = parent.offsetHeight;
-
-var chart = new Chart(ctx, {
-  type: 'line',
-  options: {
-    responsive: true,
-    maintainAspectRatio: false
-  },
-  data: {
-    labels: [${history.date}],
-    datasets: [
-      {
-        label: ${historyData.description},
-        data: [${historyData.amount}]
-      }
-    ]
-  }
-});*/
 
 var canvas = document.getElementById("myChart");
 var ctx = canvas.getContext("2d");
@@ -183,22 +92,46 @@ var chart = new Chart(ctx, {
     maintainAspectRatio: false
   },
   data: {
-    labels: ['01', '02', '03', '05', '06', '09'],
+    labels: ['02', '04', '06', '08', '10', '12'],
     datasets: [
       {
         label: 'Test 01',
-        data: [1, 2, 3, 6]
+        data: [1, 2, 3, 6],
+        backgroundColor: ['rgba(255, 99, 132, 0.2)']
       },
       {
         label: 'Test 03',
-        data: [3, 2, 5, 10, 23, 21]
+        data: [3, 2, 5, 10, 23, 21],
+               backgroundColor: ['rgba(90, 217, 44, 0.2)']
       },
       {
         label: 'Test 02',
-        data: [3, 9, 5, 5, 6, 29]
-      }
-    ]
+        data: [3, 9, 5, 5, 6, 20 , 29],
+               backgroundColor: ['rgba(226, 56, 192, 0.2)']
+      },
+    ],
   }
+});
+
+
+/* function needs to add to existing classes defined in list of produtcs prefix _active 
+when item is clicked, class should change background position in existing roller */
+$(function() {
+   $('.products').click(function() {
+     var to = $(this);
+      // remove classes from all
+     $(this).removeClass();
+     var iconId = event.target.id;
+     var iconClass = $(this).attr("class");
+      $(this).toggleClass(iconId +'-active');
+     if (iconId == iconClass) {
+     to.toggle(iconId +'-active', '');
+     } else {
+       to.click(function() {
+         to.toggleClass(iconId, '');
+       })
+     }
+   });
 });
 
 });

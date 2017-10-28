@@ -97,17 +97,17 @@ var chart = new Chart(ctx, {
       {
         label: 'Test 01',
         data: [1, 2, 3, 6],
-        backgroundColor: ['rgba(255, 99, 132, 0.2)']
-      },
-      {
-        label: 'Test 03',
-        data: [3, 2, 5, 10, 23, 21],
-               backgroundColor: ['rgba(90, 217, 44, 0.2)']
+        backgroundColor: ['rgba(5, 121, 182, 1)']
       },
       {
         label: 'Test 02',
+        data: [3, 2, 5, 10, 23, 21],
+               backgroundColor: ['rgba(252, 139, 0, 1)']
+      },
+      {
+        label: 'Test 03',
         data: [3, 9, 5, 5, 6, 20 , 29],
-               backgroundColor: ['rgba(226, 56, 192, 0.2)']
+               backgroundColor: ['rgba(19, 189, 210, 1)']
       },
     ],
   }
@@ -117,15 +117,15 @@ var chart = new Chart(ctx, {
 /* function needs to add to existing classes defined in list of produtcs prefix _active 
 when item is clicked, class should change background position in existing roller */
 $(function() {
-   $('.products').click(function() {
+   $('.products >').click(function() {
      var to = $(this);
       // remove classes from all
-     $(this).removeClass();
+     to.removeClass();
      var iconId = event.target.id;
-     var iconClass = $(this).attr("class");
-      $(this).toggleClass(iconId +'-active');
+     var iconClass = to.attr("class");
+      to.toggleClass(iconId +'_active');
      if (iconId == iconClass) {
-     to.toggle(iconId +'-active', '');
+     to.toggle(iconId +'_active', '');
      } else {
        to.click(function() {
          to.toggleClass(iconId, '');
@@ -133,5 +133,4 @@ $(function() {
      }
    });
 });
-
 });

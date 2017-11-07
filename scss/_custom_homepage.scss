@@ -1,4 +1,5 @@
-
+$dropdown-list_item-color: #0EAEC7;
+$active-element:#0698B6;
 body {
 	margin:0;
 	overflow: auto;
@@ -9,115 +10,225 @@ body {
 	padding:0;
 }
 .nav-styling {
-	background-color: #13bdd2;
+	background-color: $primary-color;
 
 }
 
 .full-width-content-background {
 	background-color: $secbackground;
-	padding-top: 65px;
+	padding-top: 50px;
+}
+
+.title-bar {
+	background-color:transparent;
+	height:100px; 
+	justify-content:flex-end;
+
+	.menu-icon {
+
+	}
 }
 .top-bar {
- background-color: $primary-color;
- height:100px;
- padding: 0 14px 0 15px;
+	background-color: transparent;
+	padding-top:0px;
 
-	 .top-bar-section {
 
-	 	a {
-				&:focus  {
-					background-color: black;
-				
-					&::after {
-						display: block;
-						content: '';
-						position: relative;
-						left: 42%;
-						border-width: 0 5px 10px 5px;
-						border-radius: 10px;
-						background-color: black;
-						top: 20%;
-						width: 10px;
-						height: 10px;
-						}
-				}	
-		 }
+	ul {
+
+		height:94px;	
+
+			a {
+				color: $white;
+
+				.profile-picture {
+					height:90px;
+					width:140px;
+					border-radius:10px;
+				}
 	}
-		 ul {
-		 	margin:0;
-			  padding:0;
-			  display:flex;
-			  background-color: transparent;
-
-			  .separator-line {
-			  	content: '';
-				width: 5rem;
-				height: 1px;
-				-ms-transform: rotate(90deg);
-				transform: rotate(90deg);
-				top: 37px;
-				right: 57px;
-				background-color: #fff;
-				position: relative;
-			  }
-			  .logout-btn {
-
-
-			  	svg {
-			  		fill:#e21a61;
-			  	}
-			  }
-
-			.has-form {
-		 			margin-left: 3rem;
-		 			margin-top:50px;
-					border-radius: 5px;
-					display:none;
-					
-					input {
-						padding-left:20px;
-						border-radius: 5px;
-						
-						}
-		 	}
-
-		 	.search {
-		 		margin-left:30px;
-
-		 	}
-
-
-		 	li {
-		 		list-style:none;
-				  width:80px;
-				  text-align:center;
-
-		 		a {
-		 			color:$white;
-				    height: 100px;
-					font-size: 0.7em;
-					text-decoration:none;
-
-					svg {
-
-					  height:80%;
-					  width:100%;
-					  fill:$white;
-					}
-
-					&:focus  {
-						background-color: black;
-					}	
-		 		}
-		 	}
-		 }
 }
 
-.efi {
-		height: 5.5rem;
-		width: 5.5rem;
-		padding: 10px 0px 0 0;
+	.top-bar-left {
+
+		ul {
+			background-color:transparent;
+			display: flex;
+			flex-wrap: wrap;
+
+
+
+						.company-logotype-container {
+
+						a {
+							padding-right: 5px;
+
+								.company-logotype-content {
+									height: 5.1rem;
+									width: 5.1rem;
+								}
+
+						}
+
+					}
+
+					.profile-picture-container {
+
+						a {
+							padding-left:0px;
+
+								.profile-picture-content {
+									height: 5.2rem;
+									width: 7.2rem;
+									border-radius:10px;
+								}
+
+
+						}
+
+					}
+
+					.bio-settings-container {
+
+						a {
+							font-size:1.5rem;
+							padding: 19px 0 0 0;
+							text-align: center;
+						}
+
+						.settings-container {
+							height:80px;
+							position: relative;
+    						bottom: -20px;
+    						left: 0;
+
+							li {
+
+								a {
+									padding: 0.2rem 1.2rem;
+									font-size:1rem;
+
+									svg {
+										height:20px;
+										width: 20px;
+									}
+
+
+								}
+
+							}
+						}
+					}
+
+		}
 	}
+
+	.top-bar-right {
+
+		ul {
+			background-color:transparent;
+
+			.search-input-spot {
+				display: flex;
+    			align-items: center;
+    			width: 50px;
+    			height: 100px;
+
+
+				.input-search {
+					width:0;
+					max-width:500px;
+					margin-right: 0;
+					padding:0;
+					margin:0;
+					top:11px;
+					height:77px;			
+					transition: ease-in-out 1s;
+					border:0px;
+					position:absolute;
+					right:32px;
+					top:11px;
+					border: 0px $white solid;
+					border-radius: 10px;
+				}
+
+				.expand-search {
+						width: 463px;
+						border: 1px #fff solid;
+						position: absolute;
+						right: 33px;
+						top: 11px;
+						height: 77px;
+						padding-left: 10px;
+						border-radius: 10px;
+						border: 1px $white solid;
+					}
+
+				.btn-search {
+					fill:$white;
+					z-index:10;
+					background-color: transparent;
+					cursor: pointer;
+					width: 40px;
+    				height: 70px;
+    				position: relative;
+
+					svg {
+						height: 65px;
+    					width: 30px;
+
+						&:hover{
+							color:$primary-color;
+						}
+					}
+
+				}
+
+				.btn-search-active {
+					fill:$primary-color;
+					@extend .btn-search;
+
+				}
+
+			}
+
+			li {
+
+				a {
+					text-transform: uppercase;
+					fill:$white;
+					font-size:0.9rem;
+
+					&:focus {
+						background-color:$active-element;
+
+					
+					}
+
+					svg {
+						height:65px;
+						width:30px;
+						display: block;
+						margin: 0 auto;
+
+					}
+				}
+				.dropdown-analyse {
+						background-color:$dropdown-list_item-color;
+						height:auto;
+					}
+
+
+			}
+		}
+
+
+	}
+
+
+
+}
+
+
 .layout {
 	display: flex;
 	margin:0 auto;
@@ -160,104 +271,70 @@ body {
 	padding:0;
 	display: flex;
 }
+
+.products {
+	.options-content:nth-child(5) {
+		background-color: $primary-color;
+		ul {
+			li {
+				svg {
+					fill:white;
+				}
+			}
+
+		}
+	}
+}
 .options-content {
 	margin-left:0;
 	margin-right:10px;
 	background-color: $white;
     border-radius: 5px;
     margin-bottom: 10px;
-    list-style: none;
-    padding:15px;
-    
-    &:hover, .wallet_active:hover   {
-		background-color: $primary-color;
-		display:block;
-    }	
+    padding: 10px 14px 10px 15px;
+
+
+    &:hover {
+    	background-color: $primary-color;
+    	color:black;
+    }
+	
+	ul {
+
+
+
+		li:nth-child(2) {
+	 	margin-left:0;
+
+		}
+		.select {
+	    	width:40px;
+	    	height:80px;
+	    	display: flex;
+    		align-items: center;
+
+	    	svg {
+		    		height: 80%;
+					width: 95%;
+					fill: #77797a;
+
+					&:hover {
+						fill:$white;
+					}
+		}
+  	}
 
     ul {
     	li {
     		padding: 0 0 0 8px;
+
+    		a {
+	    		text-decoration: none;
+	    		color:black;
+	    	}
     	}
     }
 }
-
-//inactive icons
-.icon--state {
-	width: 60px;
-	height: 60px;
-	background-repeat: no-repeat;
-	background-size: auto;
-	background-image: url(../img/roller.png);
-}
-
-//wallet
-.wallet {
-	background-position: -2px -7px;
-	opacity: .6;
-	@extend .icon--state;
-	
-	&:hover {
-		@extend .wallet_active;
-	}
-}
-//savings icon
-.savings {
-	background-position: -2px -117px;
-	opacity: .6;
-	@extend .icon--state;
-}
-//bank account icon
-.bank_account {
-	background-position: -2px -226px;
-	opacity: .6;
-	@extend .icon--state;
-}
-//bar chart icon
-.bar_chart {
-	background-position: -2px -314px;
-	opacity: .6;
-	@extend .icon--state;
-}
-//pointing loans icon
-.loans {
-	background-position: 0px -393px;
-	opacity: .6;
-	@extend .icon--state;
-}
-//stop
-
-
-// active icons 
-
-//wallet
-.wallet_active {
-	background-position: 0px -63px;
-	opacity: .9;
-	@extend .icon--state;
-}
-//savings icon
-.savings_active {
-	background-position: 0px -7px;
-	opacity: .9;
-	@extend .icon--state;
-}
-//bank_account icon
-.bank_account_active {
-	background-position: 0px -7px;
-	opacity: .9;
-	@extend .icon--state;
-}
-//bar_chart icon
-.bar_chart_active {
-	background-position: 0px -7px;
-	opacity: .9;
-	@extend .icon--state;
-}
-//pointing loans icon
-.loans_active {
-	background-position: 0px -7px;
-	opacity: .9;
-	@extend .icon--state;
 }
 
 //stop
@@ -291,7 +368,7 @@ body {
 		}
 	}
 .history-elements {
-	font-size: 0.8rem;
+	font-size: 1rem;
 }
 
 .btn-background-none {
@@ -325,18 +402,23 @@ body {
 	width:1.5rem;
 	padding: 0 0 20px 0;
 }
-.profile__conteiner {
+.profile__container {
 	height:100%;
 	width:100%;
 }
-.profile__conteiner-picture {
-	border-radius: 15px;
-	padding: 10px 0px 10px 0px;
-	height: 6.1rem;
-	width: 5.5rem;
+.profile__container-picture {
+	width: 6.1rem;
+
+		img {
+			border-radius: 15px;
+			padding: 10px 0px 10px 0px;
+			height:100%;
+			width:100%;
+		}
 }
 .switch {
 	display: inline-block;
+	font-size:.7rem;
 
 	p {
 		color:black;
@@ -348,5 +430,20 @@ body {
 		font-size: 1.5em;
 	}
 }
-.products {
+.income {
+	font-weight: bold;
+	color:#6eb512;
+}
+
+.outcome {
+	font-weight: bold;
+}
+
+.dashboard-layout {
+	height:auto;
+}
+.history-card {
+	height:100vh;
+	background-color:$secbackground;
+	display:none;
 }

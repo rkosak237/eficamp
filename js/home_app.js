@@ -12,13 +12,13 @@ $(document).ready(function() {
 
 //Start - history card
 $('#history').click(function() {
-  $('.history-card').toggle();
-  $('.dashboard-layout').hide();
+  $('.history-card').fadeIn();
+  $('.dashboard-layout').fadeOut('slow');
 });
 
-$('#history').click(function() {
-  $('.dashboard-layout').toggle();
-  $('.history-card').hide();
+$('#home').click(function() {
+  $('.history-card').fadeOut();
+  $('.dashboard-layout').fadeIn('slow');
 });
 
 
@@ -140,7 +140,7 @@ const getHistory = () => {
       };
      
       const template = historyTemplate(element);
-      $(".history").append(template);
+      $(".history, .history--card-dynamic").append(template);
       });
   });
 }

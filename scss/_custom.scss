@@ -1,3 +1,5 @@
+// google fonts
+
 body,
 html {
 	color: black;
@@ -227,4 +229,15 @@ $focusHL: #21A179;
 
 .wrap.InvaildLogin::after {
 	display: block;
+}
+
+.history--card-dynamic {
+
+	@extend .history-content;
+	
+	ul {
+		margin-bottom: 0;
+
+	}
+
 }

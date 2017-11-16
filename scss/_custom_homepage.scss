@@ -1,5 +1,13 @@
 $dropdown-list_item-color: #0EAEC7;
 $active-element:#0698B6;
+@mixin input-placeholder {
+    &.placeholder { @content; }
+    &:-moz-placeholder { @content; }
+    &::-moz-placeholder { @content; }
+    &:-ms-input-placeholder { @content; }
+    &::-webkit-input-placeholder { @content; }
+}
+
 body {
 	margin:0;
 	overflow: auto;
@@ -9,10 +17,7 @@ body {
 	width:100%;
 	padding:0;
 }
-.nav-styling {
-	background-color: $primary-color;
-
-}
+.nav-styling {background-color: $primary-color;}
 
 .full-width-content-background {
 	background-color: $secbackground;
@@ -23,10 +28,6 @@ body {
 	background-color:transparent;
 	height:100px; 
 	justify-content:flex-end;
-
-	.menu-icon {
-
-	}
 }
 .top-bar {
 	background-color: transparent;
@@ -60,7 +61,9 @@ body {
 						.company-logotype-container {
 
 						a {
-							padding-right: 5px;
+							padding-left:7px;
+							padding-right:5px;
+
 
 								.company-logotype-content {
 									height: 5.1rem;
@@ -176,9 +179,7 @@ body {
 						height: 65px;
     					width: 30px;
 
-						&:hover{
-							color:$primary-color;
-						}
+						&:hover{color:$primary-color;}
 					}
 
 				}
@@ -198,11 +199,7 @@ body {
 					fill:$white;
 					font-size:0.9rem;
 
-					&:focus {
-						background-color:$active-element;
-
-					
-					}
+					&:focus {background-color:$active-element;}
 
 					svg {
 						height:65px;
@@ -241,17 +238,12 @@ body {
 	margin:0;
 }
 
-.text {
-	font-size: 1.0em;
-}
+.text {font-size: 1.0em;}
 .content-containter {
 	
 	ul {
 		margin-left: 0;
-		li {
-			list-style:none;
-			
-		}
+		li {list-style:none;}
 	}
 }
 .diagram {
@@ -277,9 +269,7 @@ body {
 		background-color: $primary-color;
 		ul {
 			li {
-				svg {
-					fill:white;
-				}
+				svg {fill:white;}
 			}
 
 		}
@@ -301,12 +291,7 @@ body {
 	
 	ul {
 
-
-
-		li:nth-child(2) {
-	 	margin-left:0;
-
-		}
+		li:nth-child(2) {margin-left:0;}
 		.select {
 	    	width:40px;
 	    	height:80px;
@@ -318,9 +303,7 @@ body {
 					width: 95%;
 					fill: #77797a;
 
-					&:hover {
-						fill:$white;
-					}
+					&:hover {fill:$white;}
 		}
   	}
 
@@ -361,27 +344,19 @@ body {
 	    cursor: pointer;
 	    position: relative;
 	    margin-left:0;
-	    padding-left:0;
+	    padding-left:10px;
 
-	ul {
-		list-style: none;
-		}
+	ul {list-style: none;}
 	}
-.history-elements {
-	font-size: 1rem;
-}
+.history-elements {font-size: 1rem;}
 
 .btn-background-none {
 	background-color: transparent;
 	color: black;
 }
-.primary-cta-btn {
-	text-transform: uppercase;
-}
+.primary-cta-btn {text-transform: uppercase;}
 
-.button {
-	background-color: #primary-color;
-}
+.button {background-color: #primary-color;}
 
 .section-title-content {
 	font-size: 16px;
@@ -435,15 +410,84 @@ body {
 	color:#6eb512;
 }
 
-.outcome {
-	font-weight: bold;
-}
+.outcome {font-weight: bold;}
 
-.dashboard-layout {
-	height:auto;
-}
+.dashboard-layout {height:auto;}
 .history-card {
 	height:100vh;
 	background-color:$secbackground;
 	display:none;
+
+	.history--card-dynamic {
+		ul {padding:0.5rem 1rem 0.5rem 1rem;}
+	}
+
+	div {
+		padding-left:0;
+		padding-right:0;
+
+		h1 {padding-bottom: 2rem;}
+
+		.search-container {
+			position: relative;
+			display:inline-block;
+
+			&::before {
+				background-image: url("../img/magnifier-tool.svg");
+				width: 20px;
+				height: 20px; // width == height displays correctly svg
+				content: '';
+				position: absolute;
+				right: 15px;
+				top: 25px;
+				background-size: cover;
+			}
+
+		.history-search_input {
+			margin-top:1rem;
+			border-radius: 5px;
+			width:100%;
+
+			@include input-placeholder {
+				
+				}
+		}
+		.history-search_select-category {}
+		}
+	}
+
+	.history-card--container {
+		.h-card-container_category {position: relative; left:-25px;}
+		.h-card-container_amount {padding-right:20px;}
+	}
 }
+.h-searchbox--container {position:relative;}
+
+.history-search_results {
+	margin-left:   0;
+	max-height:    20rem;
+	overflow:      hidden;
+	z-index:       10;
+	width:         100%;
+	position:      absolute;
+	top:           3.5rem;
+	left:          0rem;
+	border-radius: 5px;
+		
+		li {
+	      background:white;
+	      list-style: none;
+	      border-bottom: 1px solid #D8D8D8;
+	      box-shadow: 0 0 10px rgba(0, 0,  0, 0.14);
+	      margin:0;
+	      padding:20px;
+	      transition:background 0.2s;
+	      display:flex;
+	      justify-content:space-between;
+	      text-transform: capitalize;
+	    }
+}
+
+    .hl {
+      background:#ffc600;
+    }

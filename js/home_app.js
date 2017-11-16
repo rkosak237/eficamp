@@ -1,5 +1,49 @@
 $(document).foundation();
-// Login-page
+// Dashboard - layout
+
+//Start - searching in history
+const endpoint = 'https://efigence-camp.herokuapp.com/api/data/history';
+
+const items = [];
+
+fetch(endpoint)
+  .then(rawData => rawData.json())
+  .then(data => items.push(...data.content));
+
+
+function findMatches(wordToMatch, items) {
+  return items.filter(historyList => {
+    const regex = new RegExp(wordToMatch, 'gi');
+    return historyList.description.match(regex) || historyList.category.match(regex)
+  });
+}
+
+function displayMatches() {
+  const matchArray = findMatches(this.value, items);
+  const html = matchArray.map(historyList => {
+    const regex = new RegExp(this.value, 'gi');
+    const descData = historyList.description.replace(regex, `<span class="hl">${this.value}</span>`);
+    const categoryData = historyList.category.replace(regex, `<span class="hl">${this.value}</span>`);
+
+    return `
+      <li>
+        <span class="name">${descData}, ${categoryData}</span>
+      </li>
+    `;
+  }).join('');
+  suggestions.innerHTML = html;
+}
+
+
+const searchInput = document.querySelector('.history-search_input');
+const suggestions = document.querySelector('.history-search_results');
+
+searchInput.addEventListener('change', displayMatches);
+searchInput.addEventListener('keyup', displayMatches);
+//history-search_input <- miejsce inputu
+
+//Stop - searching in history
+
 $(document).ready(function() {
 //Start - btn search
      $('.btn-search').click(function() {
@@ -20,9 +64,6 @@ $('#home').click(function() {
   $('.history-card').fadeOut();
   $('.dashboard-layout').fadeIn('slow');
 });
-
-
-
 //Stop - history card
 
 //Start - Load summary 
@@ -128,14 +169,15 @@ const getHistory = () => {
           historyData.amount = - `${((historyData.amount).toFixed(2))}`;
         }
       return `
-                <ul class="history-list">
+                <div class="history-list">
                   <ul class="menu row">
-                    <li class="small-3 medium-2 large-2 history-elements text-center">${(historyData.date).replace(/(\d{4})-(\d\d)-(\d\d)/, "$3-$2")}</li>
-                    <li class="small-5 medium-7 large-7 history-elements text-center">${historyData.description}</li>
-                    <li class="small-4 medium-3 large-3 history-elements text-center"><span class="${amountType}">${((historyData.amount).toFixed(2))}</span> ${historyData.currency}</li>
+                    <li class="small-3 medium-2 large-2 history-elements">${(historyData.date).replace(/(\d{4})-(\d\d)-(\d\d)/, "$3-$2")}</li>
+                    <li class="small-5 medium-7 large-5 history-elements">${historyData.description}</li>
+                    <li class="small-5 medium-7 large-2 history-elements">${historyData.category}</li>
+                    <li class="small-4 medium-3 large-3 history-elements text-right"><span class="${amountType}">${((historyData.amount).toFixed(2))}</span> ${historyData.currency}</li>
 
                   </ul>
-                </ul>
+                </div>
       `
       };
      

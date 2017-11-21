@@ -1,5 +1,4 @@
 $(document).foundation();
-// Dashboard - layout
 
 //Start - searching in history
 const endpoint = 'https://efigence-camp.herokuapp.com/api/data/history';
@@ -14,17 +13,23 @@ fetch(endpoint)
 function findMatches(wordToMatch, items) {
   return items.filter(historyList => {
     const regex = new RegExp(wordToMatch, 'gi');
-    return historyList.description.match(regex) || historyList.category.match(regex)
+    return historyList.description.match(regex) || historyList.category.match(regex) || ''
   });
 }
 
 function displayMatches() {
   const matchArray = findMatches(this.value, items);
+
+    if(this.value == '') {
+      suggestions.style.display = 'none';
+    } else {
+      suggestions.style.display = 'block';
+    }
+
   const html = matchArray.map(historyList => {
     const regex = new RegExp(this.value, 'gi');
     const descData = historyList.description.replace(regex, `<span class="hl">${this.value}</span>`);
     const categoryData = historyList.category.replace(regex, `<span class="hl">${this.value}</span>`);
-
     return `
       <li>
         <span class="name">${descData}, ${categoryData}</span>
@@ -34,13 +39,12 @@ function displayMatches() {
   suggestions.innerHTML = html;
 }
 
-
 const searchInput = document.querySelector('.history-search_input');
 const suggestions = document.querySelector('.history-search_results');
 
 searchInput.addEventListener('change', displayMatches);
 searchInput.addEventListener('keyup', displayMatches);
-//history-search_input <- miejsce inputu
+searchInput.addEventListener('change', displayMatches);
 
 //Stop - searching in history
 
@@ -138,9 +142,7 @@ const getProduct = () => {
                     <li class="small-5 text-left select">${icon}</li>
                     <li class="small-7 text-left">${productData.type} [${productData.elements}] <br> ${((productData.amount).toFixed(2))} ${productData.currency} </li>
                   </ul>
-                  </div>
                 </div>
-
       `
       };
       const template = productTemplate(element);
@@ -170,11 +172,18 @@ const getHistory = () => {
         }
       return `
                 <div class="history-list">
-                  <ul class="menu row">
-                    <li class="small-3 medium-2 large-2 history-elements">${(historyData.date).replace(/(\d{4})-(\d\d)-(\d\d)/, "$3-$2")}</li>
-                    <li class="small-5 medium-7 large-5 history-elements">${historyData.description}</li>
-                    <li class="small-5 medium-7 large-2 history-elements">${historyData.category}</li>
-                    <li class="small-4 medium-3 large-3 history-elements text-right"><span class="${amountType}">${((historyData.amount).toFixed(2))}</span> ${historyData.currency}</li>
+                  <ul class="menu  row  expanded">
+                    <li class="small-3  medium-2  large-2  history-elements">${(historyData.date).replace(/(\d{4})-(\d\d)-(\d\d)/, "$3-$2")}</li>
+                    <li class="small-4  medium-4  large-5  history-elements">${historyData.description}</li>
+                    <li class="small-3  medium-2  large-2  history-elements">
+                      <select>
+                          <option>${historyData.category}</option>
+                          <option>${historyData.category}</option>
+                          <option>${historyData.category}</option>
+                          <option>${historyData.category}</option>
+                      </select>
+                    </li>
+                    <li class="small-2  medium-4  large-3  history-elements text-right"><span class="${amountType}">${((historyData.amount).toFixed(2))}</span> ${historyData.currency}</li>
 
                   </ul>
                 </div>
@@ -182,7 +191,7 @@ const getHistory = () => {
       };
      
       const template = historyTemplate(element);
-      $(".history, .history--card-dynamic").append(template);
+      $(".history, #cardHdynamic").append(template);
       });
   });
 }

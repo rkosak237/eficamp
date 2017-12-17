@@ -8,27 +8,52 @@
 		<link rel="stylesheet" href="css/app.css">
 	</head>
 	<body>
+
+
+		<!--pre-loader -->
+		<section class="preLoaderScreen--hidden">
+				<div class="preLoader-containe">
+					<div class="preLoader-containe__loader"></div>	
+				</div>
+		</section>
+
+		<!--pre-loader-->
+
+
+		<!--Navigation -->
 		<div class="row expanded">
 			<div class="large-12 large-centered columns full-width">
-				<div class="nav-styling full-width">
-					<div class="small-12 small-centered large-10 large-centered columns">
-						<!--Navigation -->
+				<div class="nav-background full-width">
+					<nav class="small-12 small-centered large-10 large-centered columns">
+		
+
+						
+						<!--Mobile nav-->
+					
+
 						<div class="title-bar" data-responsive-toggle="example-menu" data-hide-for="large">
 							<button class="menu-icon" type="button" data-toggle="example-menu"></button>
-							<div class="title-bar-title">Menu
+							<div class="title-bar-iconTitle">Menu
 							</div>
 						</div>
-						<div class="top-bar" id="example-menu">
-							<div class="top-bar-left">
+
+
+						<!--Mobile nav-->
+						
+
+						<!--Desktop nav-->
+						<div class="top-bar nav-bar" id="example-menu">
+							<div class="nav-bar--left">
 								<ul class="menu title-area">
-									<li class="company-logotype-container">
+									<li class="nav-bar--left__logotype">
 										<a href="#">
-											<img class="company-logotype-content hide-for-small-only" src="img/ef_log.png" alt="Efigence logotype">
+											<img id="backtoHomebyLogotype" class="  hide-for-small-only" src="img/ef_log.png" alt="Efigence logotype">
 										</a>
 									</li>
+
 									<li class="profile-picture-container">
 										<a href="#">
-											<img class="profile-picture-content" src="img/jan_kowalski.jpeg">
+											<img class="profile-picture-content  hide-for-small-only" src="img/jan_kowalski.jpeg">
 										</a>
 									</li>
 									<li class="bio-settings-container"><a href="#">John Doe</a>
@@ -89,13 +114,18 @@
 								</ul>
 							</div>
 						</div>
-					</div>
+						<!--Desktop nav-->
+
+					</nav>
 				</div>	
  			</div>
 		</div>
-		<main class="row expanded full-width-content-background">
+		<!--Navigation -->
+
+<!--home-dashboard-->
+		<main class="row expanded main-container--background">
 			
-			<!--history card-start-->
+	<!--history card-start-->
 			
 			<div class="history-card small-12 large-10 columns large-centered">
 				
@@ -128,25 +158,252 @@
 						<div class="small-2  medium-4  large-3  text-right  h-card-container_amount">Amount</div>
 						<div class="small-12  medium-12  large-12"></div>
 					</div>
+
+
 					<!--container for history data - generated dynamicly -->
-					<div id="cardHdynamic" class="history-card--dynamic"></div>
+					<div id="historyCardDynamic" class="history-card--dynamic"></div>
 					<!--container for history data - generated dynamicly -->
+
+
 				</section>
 			</div>
-			<!--history card-stop-->
-			<div class="small-12 large-10 large-centered columns dashboard-layout">
-				<div class="small-12 medium-12 large-8 columns vertical__center hide-for-small-only"><h1>Finance life stream</h1></div>
-				<div class="small-12 medium-12 large-4 columns text-right vertical__center hide-for-small-only">
-					<button class="button btn-background-none" href="#">Add</button>
-					<button class="button primary-cta-btn" href="#">Bank</button>
-					<button class="button primary-cta-btn" href="#">Payment</button>
+
+	<!--history card-stop-->
+
+
+	<!--transfer card-start-->
+
+
+			<section class="sub-card--transfer  small-12 large-8  columns  large-centered">
+					<div class="row">
+						<div class="card-transfer--background  columns   large-12">
+
+						<!--place for return icon -->
+							<div class="columns large-12"><a href="#"><img id="returnToHomepg" class="transfer-icon_return" src="img/left-arrow.svg" alt=""></a></div>
+
+							
+
+						<!-- icon on left, on right:top - info about chosed acount, bot- number of accound -  on right edge - available money on account + currency ( place to chose account (optional)) -->
+							<!--below    Add the accoiunt from which you draw funds -->
+
+
+								<div class="large-12">
+									<label>
+										<select>
+											<option>
+												<div class="large-1">icon</div>
+												<div class="large-6">account number</div>
+												<div class="large-3">cash + currency</div>
+											</option>
+											<option>
+												<div class="large-1">icon2</div>
+												<div class="large-6">account number</div>
+												<div class="large-3">cash + currency</div>
+											</option>
+											<option>
+												<div class="large-1">icon3</div>
+												<div class="large-6">account number</div>
+												<div class="large-3">cash + currency</div>
+											</option>
+										</select>
+									</label>
+								</div>
+
+								<!--on left-type,                  right icons-top, desc-below,  country, own, currencies, zus, TAX, GSM   -->
+							<!-- icon on left, on right:top - info about chosed acount, bot- number of accound -  on right edge - available money on account + currency ( place to chose account (optional)) -->
+								<!--below    Add the accoiunt from which you draw funds -->
+
+						<div class="large-11">
+							<div class="columns  large-12">
+								<div class="columns  large-3"></div>
+								<div class="columns  large-9  addAccount">
+									<a href="#"><img src="img/plus-symbol-in-a-rounded-black-square(1).svg" alt="transfer on payment">
+									</a> 
+									<span>Add the account from which you draw funds</span>
+								</div>
+							</div>
+
+							<div class="columns large-12">
+								<div class="columns large-3">type</div>
+								<div class="columns large-9">
+									<ul class="menu icons icon-top  transfer-card_choosetransfer">
+										<li><a href="#"><img src="img/coins.svg" alt="transfer in coutry"></a> <span>Country</span></li>
+										<li><a href="#"><img src="img/back-left-arrow-and-man-symbol.svg" alt="transfer on my account"></a> <span>Own</span></li>
+										<li><a href="#"><img src="img/coins-money-stack.svg" alt="transfer currencies"></a> <span>Currencies</span></li>
+										<li><a href="#"><span class="departament-icon">ZUS</span></a> <span>ZUS</span></li>
+										<li><a href="#"><span class="departament-icon">US</span></a><span>TAX</span></li>
+										<li><a href="#"><img src="img/hand-graving-smartphone.svg" alt="transfer on p"></a> <span>GSM</span></li>
+									</ul>
+								</div>
+							</div>
+							<!--on left  Recipient                right - search for recipient - or more like select option with book icon on right edge  -->
+
+							<div class="columns  large-12">
+								<div class="columns  large-3">Recipient</div>
+								<div class="columns  large-9">
+									<label>
+									  <input class="transfer-inputbox" name="search"  type="search" placeholder="Search for a recipient, contractor or customer"></input>
+									</label>
+								</div>
+							</div>
+
+							<!--on left where                  right round checkboxes: account, facebook, phone, e-mail, by phone - no images   -->
+							<div class="columns  large-12">
+								<div class="columns large-3">Where</div>
+								<div class="columns large-9">
+									<fieldset class="large-12 cell text-center">
+									    <input type="radio" name="ChooseDestination"  value="Account"  id="ChooseAccount" required><label for="ChooseDestination">Account</label>
+									    <input type="radio" name="ChooseDestination"  value="Facebook" id="ChooseFacebook" ><label for="ChooseDestination">Facebook</label>
+									    <input type="radio" name="ChooseDestination"  value="Phone" id="ChoosePhone"><label for="ChooseDestination">Phone</label>
+									    <input type="radio" name="ChooseDestination"  value="E-mail"><label for="ChooseDestination">E-mail</label>
+									    <input type="radio" name="ChooseDestination"  value="By phone" ><label for="ChooseDestination">By phone</label>
+								  	</fieldset>					
+								</div>
+							</div>
+	
+							<!--number input -->
+
+							<div class="columns  large-12">
+								<div class="columns  large-3">Number</div>
+								<div class="columns  large-9">
+									<label>
+									  <input class="transfer-inputbox"  name="Receiver account number"  type="search"  placeholder="Account number of the receiver"></input>
+									</label>
+								</div>
+							</div>
+
+
+
+							<!--sum input -->
+
+							<div class="columns  large-12">
+								<div class="columns  large-3">Sum</div>
+								<div class="columns  large-7">
+									<label>
+									  <input class="transfer-inputbox"  name="Transfer amount"  type="search"  placeholder="Type how much you want to transfer"></input>
+									</label>
+								</div>
+								<div class="columns large-2">
+										<select>
+										  	<option>PLN</option>
+										  	<option>USD</option>
+										  	<option>EUR</option>
+										 </select>
+								</div>
+							</div>
+
+							<!--on calendar input -->
+
+							<div class="columns  large-12">
+								<div class="columns  large-3">When</div>
+								<div class="columns  large-4 left">
+									<label>
+									  <input id="datePick"  class="transfer-inputbox"  name="Calendar"  type="date">
+									</label>
+								</div>
+								<div class="columns  large-5">
+									<img class="transfer-calendar_icon" src="img/calendar-transfercard.svg" alt="pick date in calendar">
+								</div>
+							</div>
+						
+
+							<!--title input -->
+
+
+							<div class="columns  large-12">
+								<div class="columns  large-3">Title</div>
+								<div class="columns  large-9">
+									<label>
+									  <input class="transfer-inputbox"  name="Receiver account number"  type="search"  placeholder="Type title or choose between suggestions"></input>
+									</label>
+								</div>
+							</div>
+							<!--on left type of transfer      right round checkboxes: normaly (about 2 days), express eliksir (15min ) sorbnet( 2 hours ) whats in parentasies goes below, type of transfer strong -->
+
+							<!--radio -->
+							<div class="columns  large-12">
+								<div class="columns large-3">Type of transfer</div>
+								<div class="columns large-9">
+									<fieldset class="large-12 cell  transfer-payment-method  text-center">
+										<div class="large-4 columns">
+											<div class="large-2  columns  radio-container">
+												<span>
+													<input  type="radio"  name="ChoosePayment"  value="Account"  id="normall" required>
+												</span>
+											</div>
+										    <label class="large-10 columns" for="ChoosePayment">
+										    	<span class="radio-transfer_name">Normally</span>
+										    	<span>About 2 days</span>
+										    </label>
+										</div>
+
+
+										<div class="large-4 columns">
+											<div class="large-2 columns  radio-container">
+												<span>
+													<input id="eliksir" type="radio"  name="ChoosePayment"  value="eliksir">
+												</span>
+											</div>
+										    <label class="large-10 columns" for="ChoosePayment">
+										    	<span class="radio-transfer_name">Elixir</span>
+										    	<span>15 min</span>
+										    </label>
+										</div>
+
+
+										<div class="large-4 columns">
+											<div class="large-2 columns  radio-container">
+												<span>
+													<input id="sorbnet"  type="radio" name="ChoosePayment" value="sorbnet">
+												</span>
+											</div>
+										    <label class="large-10 columns" for="ChoosePayment">
+										    	<span class="radio-transfer_name">Sorbnet</span>
+										    	<span>2 hours</span>
+										    </label>
+										</div>	
+								  	</fieldset>					
+								</div>
+							</div>
+							<!--radio -->
+
+							<!--on left nothing   right continue,  validation could be added  + status window   -->
+
+							<div class="columns  large-12">
+								<div class="columns  large-3">
+								</div>
+								<div class="columns  large-9  send-transfer">
+									<button class="button large-4 primary-cta-btn">Continue</button>
+								</div>
+							</div>
+						</div>
+					</div>
+			</section>
+
+
+
+	<!--transfer card-stop-->
+
+
+
+			<div class="small-12  large-10  large-centered  columns  home">
+				<div class="small-12  medium-12  large-8  columns  vertical__center  hide-for-small-only"><h1>Finance life stream</h1></div>
+				<div class="small-12  medium-12  large-4  columns  text-right  vertical__center  hide-for-small-only">
+					<button class="button  btn-background-none" href="#">Add</button>
+					<button class="button  primary-cta-btn" href="#">Bank</button>
+					<button class="button  primary-cta-btn" href="#">Payment</button>
 				</div>
 				
-				<div class="columns small-12 medium-12 large-12">
-					<div class="menu content-containter small">
-						<div class="summary menu small-7 large-7">
-						</div>
-						<div class="switch small-12 medium-5 large-5 text-right hide-for-small-only">
+				<div class="columns  small-12  medium-12  large-12">
+					<div class="menu  content-containter  small">
+
+
+	<!--Dynamic content is loaded to summmary -->
+						<div class="summary  menu  small-7  large-6"></div> <button id="quickPayment" class="button  medium-4 large-2 btn-quickpay primary-cta-btn">Fast pay</button>
+	<!--Dynamic content is loaded to summmary -->
+
+
+						<div class="switch  small-12  medium-4  large-4  text-right  hide-for-small-only">
 							<p>Accounts analysis</p>
 							<input class="switch-input" id="yes-no" type="checkbox" name="exampleSwitch">
 							<label class="switch-paddle" for="yes-no">
@@ -155,26 +412,26 @@
 								<span class="switch-inactive" aria-hidden="true">Off</span>
 							</label>
 						</div>
-						<div class="small-12 columns medium-12 large-12 large-centered diagram">
+						<div class="small-12  columns  medium-12  large-12  large-centered  diagram">
 							<div id="parent" class="chart-container">
 								<canvas id="myChart"></canvas>
 							</div>
 						</div>
 					</div>
-					<section class="columns small-12 medium-12 large-12 menu">
+					<section class="columns  small-12  medium-12  large-12  menu">
 						
 						
-						<div class="small-12 medium-12 large-6">
+						<div class="small-12  medium-12  large-6">
 							<p class="section-title-content">Products</p>
 							<div class="products menu">
 							</div>
 						</div>
-						<div class="small-12 medium-12 large-6">
+						<div class="small-12  medium-12  large-6">
 							<p class="section-title-content">History</p>
 							<div class="history-content">
 								<div class="row">
 									<ul class="menu small-12">
-										<ul class="inline-list menu history history-list">
+										<ul class="inline-list  menu  history  history-list">
 										</ul>
 									</ul>
 								</div>
@@ -184,6 +441,11 @@
 				</div>
 			</div>
 		</main>
+
+
+<!--home-dashboard-->
+		
+
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.js"></script>
 		<script src="bower_components/jquery/dist/jquery.js"></script>
 		<script src="bower_components/what-input/dist/what-input.js"></script>

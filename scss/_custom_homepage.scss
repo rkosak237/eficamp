@@ -6,23 +6,50 @@ body {
 	overflow: auto;
 }
 
+.preLoaderScreen--hidden {
+	width:100%;
+	height:100%;
+	background-color:$secbackground;
+	position: fixed;
+	z-index: 15;
+	display: none;
+
+	.preLoader-container {
+
+		.preLoader_container__loader {
+
+		}
+	}
+}
+
 .full-width {
 	width:100%;
 	padding:0;
 }
-.nav-styling {background-color: $primary-color;}
+.nav-background {background-color: $primary-color;}
 
-.full-width-content-background {
+.main-container--background {
 	background-color: $secbackground;
-	padding-top: 50px;
+	padding-top: 2rem;
+	padding-bottom: 2rem;
 }
 
+
+//part of mobile nav
 .title-bar {
 	background-color:transparent;
 	height:100px; 
 	justify-content:flex-end;
 }
+//part of mobile nav
+
+
+//desktop nav-bar
 .top-bar {
+	padding-top:0px;
+	background-color: transparent;
+}
+.nav-bar  {
 	background-color: transparent;
 	padding-top:0px;
 
@@ -31,36 +58,27 @@ body {
 
 		height:94px;	
 
-			a {
-				color: $white;
-
-				.profile-picture {
-					height:90px;
-					width:140px;
-					border-radius:10px;
-				}
-	}
+			a {color: $white;}
 }
 
-	.top-bar-left {
+	.nav-bar--left {
 
 		ul {
 			background-color:transparent;
 			display: flex;
 			flex-wrap: wrap;
 
-						.company-logotype-container {
+						.nav-bar--left__logotype {
 
-						a {
-							padding-left:7px;
-							padding-right:5px;
+							a {
+								padding-left:7px;
+								padding-right:5px;
 
-
-								.company-logotype-content {
+								img {
 									height: 5.1rem;
 									width: 5.1rem;
 								}
-						}
+							}
 					}
 
 					.profile-picture-container {
@@ -209,6 +227,10 @@ body {
 	margin:0;
 }
 
+.btn-quickpay {
+	height:45px;
+
+}
 .text {font-size: 1.0em;}
 .content-containter {
 	
@@ -391,11 +413,15 @@ body {
 
 .outcome {font-weight: bold;}
 
-.dashboard-layout {height:auto;}
-.history-card {
+.home {height:auto;}
+.sub-card {
 	height:100vh;
 	background-color:$secbackground;
 	display:none;
+}
+//history card
+.history-card {
+	@extend .sub-card;
 
 	.history-card--dynamic {
 		height:60vh;
@@ -475,3 +501,137 @@ body {
     .hl {
       background:#ffc600;
     }
+// history card - stop
+
+
+//transfer card - start 
+.sub-card--transfer { 
+	@extend .sub-card;
+
+	.card-transfer--background {
+		background-color: $white;
+		border-radius: 10px;
+		height:auto;
+		-moz-box-shadow: 10px 10px 5px #999999;
+		-webkit-box-shadow: 10px 10px 5px #999999;
+		box-shadow: 10px 10px 5px #999999;
+
+		.send-transfer {
+			padding:1.5rem 0rem 0.5rem 1.3rem;
+
+		}
+
+		.addAccount {
+
+			padding-top: 0.5rem;
+			padding-bottom: 0.5rem;
+
+			a {
+				padding-left:8px;
+				padding-right:10px;
+				
+				img {
+					width: 20px;
+
+				}
+
+				span {
+
+				}
+			}
+		}
+
+		select {
+			margin:0.4rem;
+			border-radius: 5px;
+		}
+
+		.transfer-icon_return {
+			height: 25px;
+			width: 25px;
+			margin-bottom: 0.5rem;
+			margin-top: 0.5rem;
+		}
+
+		.transfer-payment-method {
+
+			.radio-container {padding:0;}
+			.radio-transfer_name {font-weight: bold;}
+
+			label {
+
+				span {
+					display:block;
+				}
+			}
+		}
+
+
+		.transfer-inputbox {
+			border-radius: 10px;
+			height:40px;
+			width:100%;
+			margin:0.4rem;
+			@extend .history-search_input;
+		}
+
+		.transfer-calendar_icon {
+			height: 50px;
+			width:30px;
+		}
+
+		.transfer-card_choosetransfer {
+
+			li {
+				padding:5px;
+				text-align:center;
+				width:80px;
+				margin:3px;
+
+				a {
+					padding:5px;
+					background-color:#9f9f9f;
+					border-radius:5px;
+
+					&:focus {
+						background-color:$primary-color;
+
+					}
+
+
+					img {
+						border-radius: 5px;
+					    padding: 1px;
+					    width: 50px;
+					    color: white;
+					    margin: 0 auto;
+					}
+
+					.departament-icon {
+						border-radius: 5px;
+					    padding: 5px;
+					    width: 57px;
+					    color: white;
+					    height: 51px;
+					    font-size: 1.5rem;
+					    display: block;
+					    position: relative;
+					    line-height: 2.6rem;
+					}
+
+					span {
+						color:black;
+						font-size:0.8rem;
+
+					}
+				}
+			}
+		}
+
+	}
+}
+
+
+
+
+//transfer card - stop

@@ -17,6 +17,7 @@ function findMatches(wordToMatch, items) {
   });
 }
 
+
 function displayMatches() {
   const matchArray = findMatches(this.value, items);
 
@@ -39,16 +40,48 @@ function displayMatches() {
   suggestions.innerHTML = html;
 }
 
+
 const searchInput = document.querySelector('.history-search_input');
 const suggestions = document.querySelector('.history-search_results');
 
-searchInput.addEventListener('change', displayMatches);
 searchInput.addEventListener('keyup', displayMatches);
 searchInput.addEventListener('change', displayMatches);
+
+
+//transfer card - date inside input 
+
+var setDate = document.getElementById("datePick");
+setDate.value = "2017-01-01";
+
+
+/* filter categories, print without duplicates
+var endpoint = 'https://efigence-camp.herokuapp.com/api/data/history';
+
+var items = [];
+
+function getItemsWithoutDuplicates(endpoint) {
+  fetch(endpoint)
+    .then(rawData => rawData.json())
+    .then(data => items.push(...data.content))
+    .then(() => {
+      let clean = items.map(item => item.category)
+      let newItems = clean.filter( function( item, index, inputArray ) {
+              return inputArray.indexOf(item) === index;
+       });
+    console.log(newItems); 
+    return newItems;
+
+  });
+}
+
+getItemsWithoutDuplicates(endpoint);
+*/
 
 //Stop - searching in history
 
 $(document).ready(function() {
+
+
 //Start - btn search
      $('.btn-search').click(function() {
     $('.input-search').toggleClass('expand-search');
@@ -58,17 +91,33 @@ $(document).ready(function() {
     });
 //Stop - btn search
 
-//Start - history card
+
+//Start - on/off history card
 $('#history').click(function() {
   $('.history-card').fadeIn();
-  $('.dashboard-layout').fadeOut('slow');
+  $('.home').fadeOut('slow');
 });
 
-$('#home').click(function() {
+$('#home, #backtoHomebyLogotype').click(function() {
   $('.history-card').fadeOut();
-  $('.dashboard-layout').fadeIn('slow');
+  $('.home').fadeIn('slow');
 });
 //Stop - history card
+
+
+//Start - quick payment on/off -> open transfer card
+$('#quickPayment').click(function() {
+  $('.sub-card--transfer').fadeIn();
+  $('.home').fadeOut('slow');
+});
+
+$('#home, #backtoHomebyLogotype, #returnToHomepg').click(function() {
+  $('.sub-card--transfer').fadeOut();
+  $('.home').fadeIn('slow');
+});
+//Stop - history card
+
+
 
 //Start - Load summary 
 const getSummary = () => {
@@ -162,6 +211,7 @@ const getHistory = () => {
       
       let historyTemplate = (historyData) => {
 
+
         let amountType;
 
         if (historyData.status == "income") {
@@ -180,18 +230,15 @@ const getHistory = () => {
                           <option>${historyData.category}</option>
                           <option>${historyData.category}</option>
                           <option>${historyData.category}</option>
-                          <option>${historyData.category}</option>
                       </select>
                     </li>
                     <li class="small-2  medium-4  large-3  history-elements text-right"><span class="${amountType}">${((historyData.amount).toFixed(2))}</span> ${historyData.currency}</li>
-
                   </ul>
                 </div>
       `
       };
-     
       const template = historyTemplate(element);
-      $(".history, #cardHdynamic").append(template);
+      $(".history, #historyCardDynamic").append(template);
       });
   });
 }

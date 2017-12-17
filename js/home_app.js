@@ -83,11 +83,11 @@ $(document).ready(function() {
 
 
 //Start - btn search
-     $('.btn-search').click(function() {
-    $('.input-search').toggleClass('expand-search');
+     $('.search-bar__btn-search').click(function() {
+    $('.search-bar--input-size').toggleClass('search-bar--expand');
     });
-     $('.btn-search').click(function() {
-    $('.btn-search').toggleClass('btn-search-active');
+     $('.search-bar__btn-search').click(function() {
+    $('.search-bar__btn-search').toggleClass('search-bar__btn-search--active');
     });
 //Stop - btn search
 
@@ -128,23 +128,23 @@ $.get("https://efigence-camp.herokuapp.com/api/data/summary", (data) => {
       let summaryTemplate = (summaryData) => {
         return `
               <ul class="small-12 medium-4 large-4 hide-for-small-only">
-                <li class=""><p class="finance-headers">Balance</p></li>
-                <li><p class="text"><strong>${((summaryData.balance).toFixed(2))}</strong> PLN</p></li>
+                <li class=""><p class="finance-life-stream__headers">Balance</p></li>
+                <li><p class="finance-life-stream__text"><strong>${((summaryData.balance).toFixed(2))}</strong> PLN</p></li>
               </ul>
               <ul class="small-12 medium-4 large-4 ">
-                <li class=""><p class="finance-headers">Available funds</p></li>
+                <li class=""><p class="finance-life-stream__headers">Available funds</p></li>
                 <li class="">
-                  <p class="text"><strong>${((summaryData.funds).toFixed(2))}</strong> PLN</li>
+                  <p class="finance-life-stream__text"><strong>${((summaryData.funds).toFixed(2))}</strong> PLN</li>
               </ul>
               <ul class="small-12 medium-4 large-4 hide-for-small-only">
-                <li class=""><p class="finance-headers">Schedule payments</p></li>
-                <li class=""><p class="text"><strong>${((summaryData.payments).toFixed(2))}</strong> PLN</p></li>
+                <li class=""><p class="finance-life-stream__headers">Schedule payments</p></li>
+                <li class=""><p class="finance-life-stream__text"><strong>${((summaryData.payments).toFixed(2))}</strong> PLN</p></li>
               </ul>
         `
       };
 
       const template = summaryTemplate(element);
-      $(".summary").append(template);
+      $(".dynamic-content__summary").append(template);
     });
 
 // ${((productData.amount).toFixed(2))}
@@ -160,7 +160,7 @@ const getProduct = () => {
      const productsList = data.content; 
     productsList.forEach((element, index) => {
         
-      const printing = document.querySelector(".products");
+      const printing = document.querySelector(".dynamic-content__products");
       
       
       let productTemplate = (productData) => {
@@ -195,7 +195,7 @@ const getProduct = () => {
       `
       };
       const template = productTemplate(element);
-      $(".products").append(template);
+      $(".dynamic-content__products").append(template);
       });
   });
 }
@@ -280,4 +280,13 @@ var chart = new Chart(ctx, {
     ],
   }
 });
+/*
+function addData(chart, label, data) {
+  chart.data.labels.push(label); 
+  chart.data.datasets.forEach((dataset) => {
+    dataset.data.pop();
+  });
+  chart.update();
+}*/
+
 });

@@ -7,13 +7,14 @@ body {
 }
 
 .preLoaderScreen--hidden {
-	width:100%;
-	height:100%;
 	background-color:$secbackground;
-	position: fixed;
-	z-index: 15;
 	display: none;
+	height:100%;
+	position: fixed;
+	width:100%;
+	z-index: 15;
 
+//preloader
 	.preLoader-container {
 
 		.preLoader_container__loader {
@@ -21,17 +22,20 @@ body {
 		}
 	}
 }
+//preloader
+
+
 
 .full-width {
-	width:100%;
 	padding:0;
+	width:100%;
 }
 .nav-background {background-color: $primary-color;}
 
 .main-container--background {
 	background-color: $secbackground;
-	padding-top: 2rem;
 	padding-bottom: 2rem;
+	padding-top: 2rem;
 }
 
 
@@ -46,16 +50,16 @@ body {
 
 //desktop nav-bar
 .top-bar {
-	padding-top:0px;
 	background-color: transparent;
+	padding-top:0px;
 }
+
 .nav-bar  {
 	background-color: transparent;
 	padding-top:0px;
 
 
 	ul {
-
 		height:94px;	
 
 			a {color: $white;}
@@ -81,20 +85,20 @@ body {
 							}
 					}
 
-					.profile-picture-container {
+					.nav-bar--left__profile-picture {
 
 						a {
 							padding-left:0px;
 
-								.profile-picture-content {
+								img {
+									border-radius:10px;
 									height: 5.2rem;
 									width: 7.2rem;
-									border-radius:10px;
 								}
 						}
 					}
 
-					.bio-settings-container {
+					.nav-bar--left__profile-settings {
 
 						a {
 							font-size:1.5rem;
@@ -102,17 +106,17 @@ body {
 							text-align: center;
 						}
 
-						.settings-container {
+						.profile-settings__container {
+							bottom: -20px;
 							height:80px;
+							left: 0;
 							position: relative;
-    						bottom: -20px;
-    						left: 0;
 
 							li {
 
 								a {
-									padding: 0.2rem 1.2rem;
 									font-size:1rem;
+									padding: 0.2rem 1.2rem;
 
 									svg {
 										height:20px;
@@ -125,54 +129,54 @@ body {
 		}
 	}
 
-	.top-bar-right {
+	.nav-bar--right {
 
 		ul {
 			background-color:transparent;
 
-			.search-input-spot {
+			.nav-bar--right__search-bar {
 				display: flex;
     			align-items: center;
-    			width: 50px;
     			height: 100px;
+    			width: 50px;
 
-				.input-search {
-					width:0;
-					max-width:500px;
-					margin-right: 0;
-					padding:0;
-					margin:0;
-					top:11px;
-					height:77px;			
-					transition: ease-in-out 1s;
+				.search-bar--input-size {
+					border-radius: 10px;
+					border: 0px $white solid;
 					border:0px;
+					height:77px;			
+					margin-right: 0;
+					margin:0;
+					max-width:500px;
+					padding:0;
 					position:absolute;
 					right:32px;
 					top:11px;
-					border: 0px $white solid;
-					border-radius: 10px;
+					top:11px;
+					transition: ease-in-out 1s;
+					width:0;
 				}
 
-				.expand-search {
-						width: 463px;
+				.search-bar--expand {
+						border-radius: 10px;
 						border: 1px #fff solid;
+						border: 1px $white solid;
+						height: 77px;
+						padding-left: 10px;
 						position: absolute;
 						right: 33px;
 						top: 11px;
-						height: 77px;
-						padding-left: 10px;
-						border-radius: 10px;
-						border: 1px $white solid;
+						width: 463px;
 					}
 
-				.btn-search {
-					fill:$white;
-					z-index:10;
+				.search-bar__btn-search {
 					background-color: transparent;
 					cursor: pointer;
+					fill:$white;
+					height: 70px;
+					position: relative;
 					width: 40px;
-    				height: 70px;
-    				position: relative;
+					z-index:10;
 
 					svg {
 						height: 65px;
@@ -182,9 +186,9 @@ body {
 					}
 				}
 
-				.btn-search-active {
+				.search-bar__btn-search--active {
+					@extend .search-bar__btn-search;
 					fill:$primary-color;
-					@extend .btn-search;
 
 				}
 			}
@@ -192,20 +196,20 @@ body {
 			li {
 
 				a {
-					text-transform: uppercase;
 					fill:$white;
 					font-size:0.9rem;
+					text-transform: uppercase;
 
 					&:focus {background-color:$active-element;}
 
 					svg {
-						height:65px;
-						width:30px;
 						display: block;
+						height:65px;
 						margin: 0 auto;
+						width:30px;
 					}
 				}
-				.dropdown-analyse {
+				.nav-bar--right__dropdown--analyse {
 						background-color:$dropdown-list_item-color;
 						height:auto;
 					}
@@ -214,52 +218,68 @@ body {
 	}
 }
 
+//Dynamic load content / Finance life stream - Summary. Balance, available funds, schedule payments
 
-.layout {
-	display: flex;
-	margin:0 auto;
-	background-color: #e3e7ea;
-	height:100vh;
-}
+//Summary - start
 
-.finance-headers {
+.finance-life-stream__headers {
 	font-size:1.1em;
 	margin:0;
 }
+.finance-life-stream__text {font-size: 1.0em;}
 
-.btn-quickpay {
-	height:45px;
-
+.vertical__center {
+	line-height: 80px;
+	margin:0;
 }
-.text {font-size: 1.0em;}
-.content-containter {
+
+
+//Summary - stop
+
+
+.dashboard__btn-quickpay {height:45px;}
+
+
+
+.dashboard-content__wrapper {
 	
 	ul {
 		margin-left: 0;
+
 		li {list-style:none;}
 	}
 }
-.diagram {
+
+
+//chart
+.dashboard-content__chart {
+	background-color: #fff;
+	border-radius: 10px;
+	height: 250px;
+	margin-bottom: 30px;
 	width: 100%;
-    height: 250px;
-    background-color: #fff;
-    margin-bottom: 30px;
-    border-radius: 10px;
+	
+	.chart__container {
+	height:100%;
+	margin:auto;
+	position: relative;
+	width:100%;
+	}
 }
 
-.background {
-	background-color: black;
-	padding: 0;
-	text-align: center;
-}
-.background-grey {
-	padding:0;
-	display: flex;
+//Products
+
+.dynamic-content__title {
+	background-color: $secbackground;
+	font-size: 16px;
+	padding-left: 10px;
 }
 
-.products {
+.dynamic-content__products {
+
 	.options-content:nth-child(5) {
 		background-color: $primary-color;
+
 		ul {
 			li {
 				svg {fill:white;}
@@ -267,10 +287,16 @@ body {
 		}
 	}
 }
+
+//Products blocks
+
+
+//History 
+
 .options-content {
+	background-color: $white;
 	margin-left:0;
 	margin-right:10px;
-	background-color: $white;
     border-radius: 5px;
     margin-bottom: 10px;
     padding: 10px 14px 10px 15px;
@@ -284,16 +310,17 @@ body {
 	ul {
 
 		li:nth-child(2) {margin-left:0;}
+		
 		.select {
-	    	width:40px;
-	    	height:80px;
-	    	display: flex;
-    		align-items: center;
+			align-items: center;
+			display: flex;
+			height:80px;
+			width:40px;
 
 	    	svg {
-		    		height: 80%;
-					width: 95%;
 					fill: #77797a;
+					height: 80%;
+					width: 95%;
 
 					&:hover {fill:$white;}
 		}
@@ -304,8 +331,8 @@ body {
     		padding: 0 0 0 8px;
 
     		a {
-	    		text-decoration: none;
-	    		color:black;
+				color:black;
+				text-decoration: none;
 	    	}
     	}
     }
@@ -314,29 +341,32 @@ body {
 
 //stop
 
+//dynamic-content__history
 .history-content {
-	padding-right:0px;
+	background-color: $white;
+	border-radius: 5px;
 	height: 400px;
-    width: 100%;
-    background-color: $white;
-    margin-bottom: 100px;
-    border-radius: 5px;
-    overflow: auto;
-    padding-left:0;
+	margin-bottom: 100px;
+	overflow: auto;
+	padding-left:0;
+	padding-right:0px;
+	width: 100%;
 }
+
+//dynamic-content__history--history-list
 .history-list {
+		background: $white;
 		border-bottom: 0.2px solid grey;
-		width:100%;
+		border-bottom: 1px solid #e7e9eb;
+		cursor: pointer;
 		display: block;
-	    background: $white;
-	    padding: 8px 5px;
-	    border-bottom: 1px solid #e7e9eb;
-	    line-height: 12px;
-	    overflow: hidden;
-	    cursor: pointer;
-	    position: relative;
-	    margin-left:0;
-	    padding-left:10px;
+		line-height: 12px;
+		margin-left:0;
+		overflow: hidden;
+		padding-left:10px;
+		padding: 8px 5px;
+		position: relative;
+		width:100%;
 
 	ul {
 		list-style: none;
@@ -349,49 +379,34 @@ body {
 
 	}
 }
+
+//income or outcome in history list
+.income {
+	color:#6eb512;
+	font-weight: bold;
+}
+
+.outcome {font-weight: bold;}
+
+
+//history-list__history-elements
 .history-elements {font-size: 1rem;}
+
+
+
+
+
+
+//buttons 
+.primary-cta-btn {text-transform: uppercase;}
+
+.button {background-color: #primary-color;}
 
 .btn-background-none {
 	background-color: transparent;
 	color: black;
 }
-.primary-cta-btn {text-transform: uppercase;}
 
-.button {background-color: #primary-color;}
-
-.section-title-content {
-	font-size: 16px;
-	padding-left: 10px;
-	background-color: $secbackground;
-}
-.chart-container {
-	position: relative;
-	width:100%;
-	height:100%;
-	margin:auto;
-}
-.vertical__center {
-	line-height: 80px;
-	margin:0;
-}
-.icon__size {
-	width:1.5rem;
-	padding: 0 0 20px 0;
-}
-.profile__container {
-	height:100%;
-	width:100%;
-}
-.profile__container-picture {
-	width: 6.1rem;
-
-		img {
-			border-radius: 15px;
-			padding: 10px 0px 10px 0px;
-			height:100%;
-			width:100%;
-		}
-}
 .switch {
 	display: inline-block;
 	font-size:.7rem;
@@ -399,40 +414,38 @@ body {
 	p {
 		color:black;
 		display: inline-block;
+		font-size: 1.5em;
+		padding: 0 20px 0 0;
+		padding: 0 20px 0 0;
 		position: relative;
 		top: -11px;
-		padding: 0 20px 0 0;
-		padding: 0 20px 0 0;
-		font-size: 1.5em;
 	}
 }
-.income {
-	font-weight: bold;
-	color:#6eb512;
-}
 
-.outcome {font-weight: bold;}
 
 .home {height:auto;}
+
 .sub-card {
-	height:100vh;
 	background-color:$secbackground;
 	display:none;
+	height:100vh;
 }
+
+
+
+
+
 //history card
 .history-card {
 	@extend .sub-card;
 
 	.history-card--dynamic {
+		border-radius: 5px;
 		height:60vh;
 		overflow: auto;
-		border-radius: 5px;
 
 		ul {
-
-		li {
-			padding:10px;
-		}
+			li {padding:10px;}
 	}
 }
 	div {
@@ -442,23 +455,23 @@ body {
 		h1 {padding-bottom: 2rem;}
 
 			.search-container {
-				position: relative;
 				display:inline-block;
+				position: relative;
 
 				&::before {
 					background-image: url("../img/magnifier-tool.svg");
-					width: 20px;
-					height: 20px; // width == height displays correctly svg
+					background-size: cover;
 					content: '';
+					height: 20px; // width == height displays correctly svg
 					position: absolute;
 					right: 15px;
 					top: 25px;
-					background-size: cover;
+					width: 20px;
 				}
 
 			.history-search_input {
-				margin-top:1rem;
 				border-radius: 5px;
+				margin-top:1rem;
 				width:100%;
 			}
 		}
@@ -473,34 +486,33 @@ body {
 .active_results {display: block;}
 
 .history-search_results {
+	border-radius: 5px;
+	display:       block;
+	left:          0rem;
 	margin-left:   0;
 	max-height:    20rem;
 	overflow:      hidden;
-	z-index:       10;
-	width:         100%;
 	position:      absolute;
 	top:           3.5rem;
-	left:          0rem;
-	border-radius: 5px;
-	display:       block;
+	width:         100%;
+	z-index:       10;
 		
 		li {
-	      background:white;
-	      list-style: none;
-	      border-bottom: 1px solid #D8D8D8;
-	      box-shadow: 0 0 10px rgba(0, 0,  0, 0.14);
-	      margin:0;
-	      padding:20px;
-	      transition:background 0.2s;
-	      display:flex;
-	      justify-content:space-between;
-	      text-transform: capitalize;
+		background:white;
+		border-bottom: 1px solid #D8D8D8; 
+		box-shadow: 0 0 10px rgba(0, 0,  0, 0.14);
+
+		display:flex;
+		justify-content:space-between;
+		list-style: none;
+		margin:0;
+		padding:20px;
+		text-transform: capitalize;
+		transition:background 0.2s;
 	    }
 }
 
-    .hl {
-      background:#ffc600;
-    }
+    .hl {background:#ffc600;}
 // history card - stop
 
 
@@ -509,12 +521,12 @@ body {
 	@extend .sub-card;
 
 	.card-transfer--background {
-		background-color: $white;
-		border-radius: 10px;
-		height:auto;
 		-moz-box-shadow: 10px 10px 5px #999999;
 		-webkit-box-shadow: 10px 10px 5px #999999;
+		background-color: $white;
+		border-radius: 10px;
 		box-shadow: 10px 10px 5px #999999;
+		height:auto;
 
 		.send-transfer {
 			padding:1.5rem 0rem 0.5rem 1.3rem;
@@ -522,44 +534,34 @@ body {
 		}
 
 		.addAccount {
-
-			padding-top: 0.5rem;
 			padding-bottom: 0.5rem;
+			padding-top: 0.5rem;
 
 			a {
 				padding-left:8px;
 				padding-right:10px;
 				
-				img {
-					width: 20px;
-
-				}
-
-				span {
-
-				}
+				img {width: 20px;}
 			}
 		}
 
 		select {
-			margin:0.4rem;
 			border-radius: 5px;
+			margin:0.4rem;
 		}
 
 		.transfer-icon_return {
 			height: 25px;
-			width: 25px;
 			margin-bottom: 0.5rem;
 			margin-top: 0.5rem;
+			width: 25px;
 		}
 
 		.transfer-payment-method {
-
 			.radio-container {padding:0;}
 			.radio-transfer_name {font-weight: bold;}
 
 			label {
-
 				span {
 					display:block;
 				}
@@ -568,11 +570,11 @@ body {
 
 
 		.transfer-inputbox {
+			@extend .history-search_input;
 			border-radius: 10px;
 			height:40px;
-			width:100%;
 			margin:0.4rem;
-			@extend .history-search_input;
+			width:100%;
 		}
 
 		.transfer-calendar_icon {
@@ -583,51 +585,46 @@ body {
 		.transfer-card_choosetransfer {
 
 			li {
+				margin:3px;
 				padding:5px;
 				text-align:center;
 				width:80px;
-				margin:3px;
 
 				a {
-					padding:5px;
 					background-color:#9f9f9f;
 					border-radius:5px;
+					padding:5px;
 
-					&:focus {
-						background-color:$primary-color;
-
-					}
+					&:focus {background-color:$primary-color;}
 
 
 					img {
 						border-radius: 5px;
-					    padding: 1px;
-					    width: 50px;
-					    color: white;
-					    margin: 0 auto;
+						color: white;
+						margin: 0 auto;
+						padding: 1px;
+						width: 50px;
 					}
 
 					.departament-icon {
 						border-radius: 5px;
-					    padding: 5px;
-					    width: 57px;
-					    color: white;
-					    height: 51px;
-					    font-size: 1.5rem;
-					    display: block;
-					    position: relative;
-					    line-height: 2.6rem;
+						color: white;
+						display: block;
+						font-size: 1.5rem;
+						height: 51px;
+						line-height: 2.6rem;
+						padding: 5px;
+						position: relative;
+						width: 57px;
 					}
 
 					span {
 						color:black;
 						font-size:0.8rem;
-
 					}
 				}
 			}
 		}
-
 	}
 }
 
